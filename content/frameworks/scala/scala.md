@@ -12,7 +12,7 @@ Most Scala applications written to [Lift](http://liftweb.net/) and [Spring](http
 
 ## Can I use Lift on Cloud Foundry?
 
-[Yes](/frameworks/scala/lift.html)
+[Yes](/docs/frameworks/scala/lift.html)
 
 ## Scala Support in Action
 

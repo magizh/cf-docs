@@ -7,6 +7,6 @@ tags:
 
 These documents will help you get started with the Micro Cloud Foundry VM:
 
-+ [Installing Micro Cloud Foundry](/infrastructure/micro/installing-mcf.html)
-+ [Using Micro Cloud Foundry](/infrastructure/micro/using-mcf.html)
++ [Installing Micro Cloud Foundry](/docs/infrastructure/micro/installing-mcf.html)
++ [Using Micro Cloud Foundry](/docs/infrastructure/micro/using-mcf.html)
 

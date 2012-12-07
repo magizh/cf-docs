@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<!--[if IE]>  <![endif]-->
+<!--[if lt IE 7 ]> <html lang="en" dir="ltr" class="no-js old_ie ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" dir="ltr" class="no-js old_ie ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" dir="ltr" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" dir="ltr" class="no-js ie9"> <![endif]-->
+<html lang='en' xmlns:og='http://ogp.me/ns#'>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+<meta content='VMware' name='author'>
+<meta content='Copyright VMware 2011. All Rights Reserved.' name='copyright'>
+<meta content='juhk3p2B-UhzEjLXtqFwDMVLo5Lmy4ZP-zVe7Gxo2Dw' name='google-site-verification'>
+<meta content='en-us' http-equiv='Content-Language'>
+<meta content='false' http-equiv='imagetoolbar'>
+<meta content='true' name='MSSmartTagsPreventParsing'>
+<meta content='all' name='robots'>
+<meta content='147862838623179' property='fb:app_id'>
+<meta content='website' property='og:type'>
+<meta content='https://docs.cloudfoundry.com/frameworks/java/spring/tutorials/springmvc-jpa-postgres/spring-expensereport-app-tutorial.html' property='og:url'>
+<meta content='https://docs.cloudfoundry.com/images/cf100.png' property='og:image'>
+<meta content='Cloud Foundry | Expense Reporting App with JPA using PostgreSQL' property='og:title'>
+<meta content='Create a Spring MVC App with JPA using PostgreSQL' property='og:description'>
+<meta content='en_US' property='og:locale'>
+<title>Cloud Foundry | Expense Reporting App with JPA using PostgreSQL</title>
+<link href='/docs/stylesheets/print.css' media='print' rel='stylesheet' type='text/css'>
+<link href='/docs/stylesheets/master.css' media='screen' rel='stylesheet' type='text/css'>
+<link href='favicon.ico' rel='shortcut icon'>
+<link href='/docs/stylesheets/uv_active4d.css' rel='stylesheet' type='text/css'>
+<link href='/docs/stylesheets/documentation.css' media='screen' rel='stylesheet' type='text/css'>
+<link href='/docs/stylesheets/pygments.css' media='screen' rel='stylesheet' type='text/css'>
+<script src='/docs/js/jquery-1.6.4.min.js' type='text/javascript'></script>
+<script src='/docs/js/documentation.js' type='text/javascript'></script>
+<script src='/docs/js/jquery.easing.js' type='text/javascript'></script>
+<script src='/docs/js/jquery.social.share.1.2.min.js' type='text/javascript'></script>
+<!--[if lt IE 9 ]> <link href="/docs/stylesheets/ie.css" media="screen" rel="stylesheet" type="text/css" /> <![endif]-->
+<!--[if lt IE 8 ]> <link href="/docs/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" /> <![endif]-->
+<link href='/docs/stylesheets/master-cf.css' media='screen' rel='stylesheet' type='text/css'>
+</head>
+<body class='api'>
+<div class='wrapper'>
+<div class='container' id='header'>
+<div class='site-wrap'>
+<div class='container'>
+<div class='span-6 logo-wrap'>
+<a href='http://www.cloudfoundry.com'>
+<img alt="Cloud Foundry: The Industry's First Open Platform As A Service" height='70' src='/docs/images/logo_header_cloudfoundry.png' width='373'>
+<span class='replaced'>Cloud Foundry: The Industry's First Open Platform As A Service</span>
+</img>
+</a>
+</div>
+<div class='span-9 last'>
+<div class='right'>
+<form action='http://www.cloudfoundry.com/search' class='search-form' method='get' onsubmit='return submitQuery()'>
+<input autocomplete='off' class='search-input' name='q' placeholder='search' type='text' value=''>
+</form>
+<ul class='super-nav'>
+<li>
+<a href='http://my.cloudfoundry.com/signup'>Get an Account</a>
+</li>
+<li>
+<a href='http://my.cloudfoundry.com/micro'>Download Micro</a>
+</li>
+<li>
+<a href='http://support.cloudfoundry.com' rel='external' target='_blank'>Support</a>
+</li>
+<li>
+<a href='http://status.cloudfoundry.com' target='_blank'>Status</a>
+</li>
+</ul>
+</div>
+<div id='nav'>
+<ul>
+<li class='selected'>
+<a href='/docs/getting-started.html'>Get Started</a>
+</li>
+<li>
+<a href='http://www.cloudfoundry.com/getinvolved'>Get Involved</a>
+</li>
+<li>
+<a href='http://www.cloudfoundry.com/partners'>Partners</a>
+</li>
+<li>
+<a href='http://blog.cloudfoundry.com'>Blog</a>
+</li>
+<li>
+<a href='http://www.cloudfoundry.com/about'>About</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='container' id='main'>
+<div class='content-wrap'>
+<div class='header-wrap clearfix'>
+<div class='site-wrap'>
+<h1>Frameworks</h1>
+<p class='sub-head'>Expense Reporting App with JPA using PostgreSQL</p>
+</div>
+</div>
+<div class='site-wrap'>
+<div class='container content'>
+<div class='span-15 prepend-top'>
+<div class='span-4'>
+<div class='sub-nav'>
+<p>
+<strong>
+<a href='/docs/getting-started.html'>Getting Started</a>
+</strong>
+Quick steps to deploy your app.
+</p>
+<form action='http://www.cloudfoundry.com/search' class='search-form-docs' method='get' onsubmit='return submitQuery()'>
+<input autocomplete='off' class='search-input-docs' name='q' placeholder='search docs' type='text' value='more:docs'>
+</form>
+<br>
+<br>
+<div class='sidebar-shell' id='js-sidebar'>
+<div class='js-accordion-list sidebar-module'>
+<ul>
+<li class='js-topic'>
+<h3>
+<a href='#'>Frameworks & Languages</a>
+</h3>
+<ul class='js-guides'>
+<li class='js-subtopic'>
+<a href='/docs/frameworks.html'>Overview</a>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/frameworks/java/spring/spring.html'>Spring</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/frameworks/java/spring/spring-insight.html'>Spring Insight</a>
+</li>
+<li>
+<a href='/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/spring-getting-started-with-sts.html'>Spring MVC using JPA with PostgreSQL</a>
+<ul class='spring-subguides'>
+<li>
+<a href='/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-template-project.html'>1. Create a Spring MVC Hello World Application</a>
+</li>
+<li>
+<a href='/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/spring-expensereport-app-tutorial.html'>2. Create a Spring MVC App with PostgreSQL</a>
+</li>
+<li>
+<a href='/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/expensereport-app-with-spring-security.html'>3. Add Spring Security to Spring MVC App</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/frameworks/java/spring/grails.html'>Grails</a>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/frameworks/scala/scala.html'>Scala</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/frameworks/scala/lift.html'>Lift</a>
+</li>
+</ul>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/frameworks/play/play.html'>Play</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/frameworks/play/java-getting-started.html'>Java Getting Started</a>
+</li>
+<li>
+<a href='/docs/frameworks/play/scala-getting-started.html'>Scala Getting Started</a>
+</li>
+<li>
+<a href='/docs/frameworks/play/java-mysql.html'>Java App with MySQL</a>
+</li>
+<li>
+<a href='/docs/frameworks/play/java-postgresql.html'>Java App with PostgreSQL</a>
+</li>
+<li>
+<a href='/docs/frameworks/play/java-mongodb.html'>Java App with MongoDB</a>
+</li>
+</ul>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/frameworks/nodejs/nodejs.html'>Node.js</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/frameworks/nodejs/nodeAutoReconfig.html'>Configuration</a>
+</li>
+</ul>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/frameworks/ruby/ruby-rails-sinatra.html'>Ruby, Rails, Sinatra</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/frameworks/ruby/ruby.html'>Overview</a>
+</li>
+<li>
+<a href='/docs/frameworks/ruby/ruby-cf.html'>Things to Know</a>
+</li>
+<li>
+<a href='/docs/frameworks/ruby/installing-ruby.html'>Installing Ruby</a>
+</li>
+<li>
+<a href='/docs/frameworks/ruby/ruby-simple.html'>Creating an App</a>
+</li>
+<li>
+<a href='/docs/frameworks/ruby/rails-3-0.html'>Rails 3.0</a>
+</li>
+<li>
+<a href='/docs/frameworks/ruby/rails-3-1.html'>Rails 3.1 and 3.2</a>
+</li>
+<li>
+<a href='/docs/frameworks/ruby/sinatra.html'>Sinatra</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='js-topic'>
+<h3>
+<a href='#'>Infrastructure</a>
+</h3>
+<ul class='js-guides'>
+<li class='js-subtopic'>
+<a href='/docs/infrastructure/overview.html'>Overview</a>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/infrastructure/micro/mcf.html'>MCF</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/infrastructure/micro/installing-mcf.html'>Installing MCF</a>
+</li>
+<li>
+<a href='/docs/infrastructure/micro/using-mcf.html'>Using MCF</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='js-topic'>
+<h3>
+<a href='#'>Services</a>
+</h3>
+<ul class='js-guides'>
+<li class='js-subtopic'>
+<a href='/docs/services.html'>Overview</a>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/services/mongodb/mongodb.html'>MongoDB</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/services/mongodb/grails-mongodb.html'>Grails</a>
+</li>
+<li>
+<a href='/docs/services/mongodb/nodejs-mongodb.html'>Node.js</a>
+</li>
+<li>
+<a href='/docs/services/mongodb/ruby-mongodb.html'>Ruby</a>
+</li>
+<li>
+<a href='/docs/services/mongodb/ruby-mongodb-gridfs.html'>GridFS</a>
+</li>
+</ul>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/services/mysql/mysql-overview.html'>MySQL</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/services/mysql/mysql.html'>Introduction</a>
+</li>
+<li>
+<a href='/docs/services/mysql/grails-mysql.html'>Grails</a>
+</li>
+<li>
+<a href='/docs/services/mysql/ruby-mysql.html'>Ruby</a>
+</li>
+</ul>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/services/rabbitmq/rabbitmq.html'>RabbitMQ</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/services/rabbitmq/faq-rabbitmq.html'>FAQ</a>
+</li>
+<li>
+<a href='/docs/services/rabbitmq/nodejs-rabbitmq.html'>Node.js</a>
+</li>
+<li>
+<a href='/docs/services/rabbitmq/ruby-rabbitmq.html'>Ruby</a>
+</li>
+<li>
+<a href='/docs/services/rabbitmq/spring-rabbitmq.html'>Spring</a>
+</li>
+</ul>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/services/redis/redis.html'>Redis</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/services/redis/ruby-redis.html'>Ruby</a>
+</li>
+</ul>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/services/postgres/postgres.html'>vFabric Postgres</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/services/postgres/postgres-ruby.html'>Ruby</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='js-topic'>
+<h3>
+<a href='#'>Tools</a>
+</h3>
+<ul class='js-guides'>
+<li class='js-subtopic'>
+<a href='/docs/tools/vmc/vmc.html'>VMC</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/tools/vmc/installing-vmc.html'>Installing</a>
+</li>
+<li>
+<a href='/docs/tools/vmc/debugging.html'>Debugging</a>
+</li>
+<li>
+<a href='/docs/tools/vmc/vmc-quick-ref.html'>Quick Reference</a>
+</li>
+<li>
+<a href='/docs/tools/vmc/vmc-non-interactive.html'>Non-Interactive Mode</a>
+</li>
+<li>
+<a href='/docs/tools/vmc/caldecott.html'>Caldecott</a>
+</li>
+</ul>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/tools/STS/sts-eclipse.html'>STS & Eclipse</a>
+<ul class='js-subguides'>
+<li>
+<a href='/docs/tools/STS/configuring-STS.html'>Configuring</a>
+</li>
+<li>
+<a href='/docs/tools/STS/debugging-CF-Eclipse.html'>Debugging</a>
+</li>
+<li>
+<a href='/docs/tools/STS/deploying-CF-Eclipse.html'>Deploying</a>
+</li>
+<li>
+<a href='/docs/tools/STS/remote-CF-Eclipse.html'>Remote Access</a>
+</li>
+</ul>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/tools/gallery/box.html'>Box Integration</a>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/tools/deploying-apps.html'>Deploying Apps</a>
+</li>
+</ul>
+</li>
+<li class='js-topic'>
+<h3>
+<a href='#'>Samples</a>
+</h3>
+<ul class='js-guides'>
+<li class='js-subtopic'>
+<a href='/docs/samples/samples.html'>Sample Apps</a>
+</li>
+<li class='js-subtopic'>
+<a href='/docs/samples/cool-apps.html'>Cool Apps</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+<strong>
+<a href='/docs/faq.html'>FAQ</a>
+</strong>
+Frequently asked questions.
+</p>
+<p>
+<strong>
+<a href='http://stackoverflow.com/questions/tagged/cloudfoundry' target='_blank'>Forums</a>
+</strong>
+Join the conversation.
+</p>
+<p>
+<strong>
+<a href='http://webinars.cloudfoundry.com'>Webinars</a>
+</strong>
+Learn more.
+</p>
+</div>
+<p class='forgot_pass'>
+<a href='http://my.cloudfoundry.com/passwd'>Forgot password?</a>
+</p>
+</div>
+<div class='span-11 last'>
+<h2>Create a Spring MVC App with JPA using PostgreSQL</h2>
+<p class='tags'>
+<strong>Tags:</strong>
+<span>
+<a href="/docs/tags/spring" rel="tag">spring</a><a href="/docs/tags/sts" rel="tag">sts</a><a href="/docs/tags/tomcat" rel="tag">tomcat</a><a href="/docs/tags/maven" rel="tag">maven</a><a href="/docs/tags/jpa" rel="tag">jpa</a><a href="/docs/tags/postgresql" rel="tag">postgresql</a>
+</span>
+</p>
+<p class='timestamp'>
+<strong>Last Updated:</strong>
+<span>
+2012-12-07
+</span>
+</p>
+<div id='social-share'></div>
+<h2 id="introduction">Introduction</h2>
+<p>In this tutorial, you will use Spring MVC and PostgreSQL to create an Expense Reporting app and then deploy it on Cloud Foundry.
+The Expense Reporting app will be used to create and manage expenses.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you begin this tutorial, you should:</p>
+
+<ol>
+<li>Be familiar with STS (Spring Tool Suite) or Eclipse.</li>
+</ol><h3 id="setup-exercise2-starter">Setup: Exercise2-Starter</h3>
+<p>Import the source code from the downloaded folder Exercise2-Starter as follows. Open STS, Select <strong>File &gt; Import &gt; Maven &gt; Existing Maven Projects</strong> and select Exercise2-Starter folder.</p>
+
+<p><img src="/docs/images/spring_tutorial/import-maven-project-step1.png" alt="maven-import-step1"></p>
+
+<p><img src="/docs/images/spring_tutorial/import-maven-project-step2.png" alt="maven-import-step2"></p>
+
+<p>In the Expense Reporting App, there are two roles:</p>
+
+<ol>
+<li>
+    <p>Normal User - Can create an expense, view its status, edit or delete it.</p>
+  </li>
+  <li>
+    <p>Manager User -  Can Approve or Reject expenses created by a Normal user.</p>
+  </li>
+</ol><p>Once a Normal User submits an expense, it goes to the Manager’s work items. The Manager can then Approve or Reject the expense.</p>
+
+<p><img src="/docs/images/spring_tutorial/normal-user-usecase.png" alt="normal-user-usecase.png" width="30%"></p>
+
+<p><img src="/docs/images/spring_tutorial/manager-user-use-case.png" alt="manager-user-usecase_admin.png" width="30%"></p>
+
+<p>These expenses are created by the users and the data
+is stored in PostgreSQL.</p>
+
+<h2 id="application-flow">Application Flow:</h2>
+<p>The below figure shows the runtime interaction of the application.</p>
+
+<p><img src="/docs/images/spring_tutorial/sequence-flow.png" alt="sequence-flow" width="50%"></p>
+
+<ol>
+<li>
+    <p>User logs into the Expense Reporting system.</p>
+  </li>
+  <li>
+    <p>User details are verified in the database.</p>
+  </li>
+  <li>
+    <p>User creates or deletes or updates an expense.</p>
+  </li>
+  <li>
+    <p>The expense goes to the ExpenseService where JPA will persist or delete or update its state in the database.</p>
+  </li>
+</ol><dl>
+<dt><em>Note:</em></dt>
+  <dd>Before building the application, make sure you add Entities, Services, Controllers,
+  Application Configuration classes and Views.</dd>
+</dl><h2 id="step-1-adding-entities">
+<strong>Step 1:</strong> Adding Entities</h2>
+<p>The <code>@Entity</code> annotation indicates that the JavaBean is a persistent entity. Typically, an entity represents a table in a relational database, and each entity instance corresponds to a row in that table. The persistent state of an entity is represented through either persistent fields or persistent properties. These fields or properties use object-relational mapping annotations to map the entities and entity relationships to the relational data in the underlying data store.</p>
+
+<p>By default, JPA takes a class name as a table name. If you want to store it under a different table name, provide the <code>@Table</code> annotation with the name property. Create a package for entities as <code>com.springsource.html5expense.model</code> and add the following entities <code>Expense</code>, <code>User</code>, <code>Role</code>, <code>State</code>.</p>
+<pre><code class="language-java"><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"EXPENSE"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Expense</span> <span class="o">{</span>
+
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span>
+    <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">Double</span> <span class="n">amount</span><span class="o">;</span>
+
+    <span class="nd">@Enumerated</span><span class="o">(</span><span class="n">EnumType</span><span class="o">.</span><span class="na">STRING</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">State</span> <span class="n">state</span> <span class="o">=</span> <span class="n">State</span><span class="o">.</span><span class="na">NEW</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">Date</span> <span class="n">expenseDate</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">User</span> <span class="n">user</span><span class="o">;</span>
+
+    <span class="nd">@OneToOne</span>
+    <span class="kd">private</span> <span class="n">ExpenseType</span> <span class="n">expenseType</span><span class="o">;</span>
+<span class="o">}</span></code></pre>
+
+<p>The <code>@Id</code> annotation specifies the primary key of the entity and the <code>@GeneratedValue</code> annotation tells JPA that the value in that field should map to the primary key and that the primary key should use an auto-incrementing value strategy. The <code>@OneToOne</code> annotation defines a single-valued association to another entity that has one-to-one multiplicity.</p>
+
+<p>You can get the Entity classes <a href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/entities.html">here</a>.</p>
+
+<h2 id="step-2-adding-services">
+<strong>Step 2:</strong> Adding Services</h2>
+<p><code>@Service</code> specifies a special component that provides the business services through interface. This annotation serves as a specialization of <code>@Component</code>, allowing for implementation classes to be autodetected through classpath scanning.</p>
+
+<pre><code class="language-java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ExpenseService</span> <span class="o">{</span>
+    <span class="n">Long</span> <span class="nf">createExpense</span><span class="o">(</span><span class="n">String</span> <span class="n">description</span><span class="o">,</span> <span class="n">ExpenseType</span> <span class="n">expenseType</span><span class="o">,</span> <span class="n">Date</span> <span class="n">expenseDate</span><span class="o">,</span>
+               <span class="n">Double</span> <span class="n">amount</span><span class="o">,</span> <span class="n">User</span> <span class="n">user</span><span class="o">);</span>
+
+    <span class="n">Expense</span> <span class="nf">getExpense</span><span class="o">(</span><span class="n">Long</span> <span class="n">expenseId</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Expense</span><span class="o">&gt;</span> <span class="n">getAllExpenses</span><span class="o">();</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Expense</span><span class="o">&gt;</span> <span class="n">getExpensesByUser</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Expense</span><span class="o">&gt;</span> <span class="n">getPendingExpensesList</span><span class="o">();</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Expense</span><span class="o">&gt;</span> <span class="n">getApprovedAndRejectedExpensesList</span><span class="o">();</span>
+
+    <span class="n">Expense</span> <span class="nf">changeExpenseStatus</span><span class="o">(</span><span class="n">Long</span> <span class="n">expenseId</span><span class="o">,</span> <span class="n">String</span> <span class="n">state</span><span class="o">);</span>
+
+    <span class="kt">void</span> <span class="nf">deleteExpense</span><span class="o">(</span><span class="n">Long</span> <span class="n">expenseId</span><span class="o">);</span>
+
+    <span class="kt">void</span> <span class="nf">updateExpense</span><span class="o">(</span><span class="n">Expense</span> <span class="n">expense</span><span class="o">);</span>
+<span class="o">}</span></code></pre>
+
+<p>These are the business methods to:</p>
+
+<ul>
+<li>
+    <p>Create, Update or Delete an Expense.</p>
+  </li>
+  <li>
+    <p>Get pending expenses for a user. Get all the expenses for a user.</p>
+  </li>
+  <li>
+    <p>Update an expense’s status.</p>
+  </li>
+  <li>
+    <p>Create a package for service interfaces as <code>com.springsource.html5expense.services</code> and add <code>ExpenseService</code>, <code>ExpenseTypeService</code>, <code>UserService</code> and <code>RoleService</code> interfaces which define the business methods.
+You can get the service interfaces <a href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/services.html">here</a>.</p>
+  </li>
+  <li>
+    <p>Add the following service implementation classes <code>JpaExpenseService</code>, <code>JpaExpenseTypeService</code>,
+<code>JpaRoleService</code> and <code>JpaUserService</code> in the <code>com.springsource.html5expense.services</code> package. The EntityManager has been autowired. The <code>@Autowired</code> annotation is auto wired to the bean by matching data type. It is associated with a persistence context. A persistence context is a set of entity instances in which for any persistent entity identity there is a unique entity instance. Within the persistence context, the entity instances and their lifecycle are managed. The EntityManager API is used to create and remove persistent entity instances, to find entities by their primary key, and to query over entities. @PersistenceContext uses the EntityManagerFactory to create an EntityManager instance. We have marked the createExpense method with @Transactional annotation which will ensure the method is running in transaction.</p>
+  </li>
+</ul><pre><code class="language-java"><span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JpaExpenseService</span> <span class="kd">implements</span> <span class="n">ExpenseService</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">EntityManager</span> <span class="n">entityManager</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">EntityManager</span> <span class="nf">getEntityManager</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">entityManager</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@PersistenceContext</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setEntityManager</span><span class="o">(</span><span class="n">EntityManager</span> <span class="n">entityManager</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">entityManager</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Transactional</span>
+    <span class="kd">public</span> <span class="n">Long</span> <span class="nf">createExpense</span><span class="o">(</span><span class="n">String</span> <span class="n">description</span><span class="o">,</span> <span class="n">ExpenseType</span> <span class="n">expenseType</span><span class="o">,</span> <span class="n">Date</span> <span class="n">expenseDate</span><span class="o">,</span>
+            <span class="n">Double</span> <span class="n">amount</span><span class="o">,</span> <span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Expense</span> <span class="n">expense</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Expense</span><span class="o">(</span><span class="n">description</span><span class="o">,</span> <span class="n">expenseType</span><span class="o">,</span> <span class="n">expenseDate</span><span class="o">,</span> <span class="n">amount</span><span class="o">,</span> <span class="n">user</span><span class="o">);</span>
+        <span class="n">entityManager</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">expense</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">expense</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Transactional</span>
+    <span class="kd">public</span> <span class="n">Expense</span> <span class="nf">getExpense</span><span class="o">(</span><span class="n">Long</span> <span class="n">expenseId</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">Expense</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">expenseId</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+
+<p>You can get the service implementation classes <a href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/services-implementation.html">here</a>.</p>
+
+<p>Once you have added service implementation classes, ensure you aren’t getting errors.</p>
+
+<h2 id="step-3-adding-the-controller">
+<strong>Step 3:</strong> Adding the controller</h2>
+<p>The Controller is responsible for mapping requests. The <code>@RequestMapping</code> annotation is used to map requests onto specific handler methods. The following table explains the URLs we used in the ExpenseReport application:</p>
+
+<table class="spring-tutorial-index-table">
+<thead><tr>
+<th>No</th>
+                <th>HTTP Method</th>
+                <th>URL Pattern</th>
+                <th>Purpose</th>
+            </tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+                <td>GET</td>
+                <td>/expenses</td>
+                <td>Get all the expenses for the user</td>
+            </tr>
+<tr>
+<td>2</td>
+                <td>POST</td>
+                <td>/expenses</td>
+                <td>Create a new expense</td>
+            </tr>
+<tr>
+<td>3</td>
+                <td>GET</td>
+                <td>/expenses/{id}</td>
+                <td>Return an expense whose expenseid is passed</td>
+            </tr>
+<tr>
+<td>4</td>
+                <td>PUT</td>
+                <td>/expenses/{id}</td>
+                <td>Update an expense whose expenseid is passed</td>
+            </tr>
+<tr>
+<td>5</td>
+                <td>DELETE</td>
+                <td>/expenses/{id}</td>
+                <td>Delete an expense whose expenseid is passed</td>
+            </tr>
+</tbody>
+</table><p>Create a package for Controllers as <code>com.springsource.html5expense.controllers</code> and add the following class: <code>ExpenseController</code>. The below method is used in ExpenseController to create a new expense. The <code>@ResponseBody</code> annotation indicates that this method return value should be bound to the web response body. We have added Jackson JSON marshaling library dependency in our project. Spring MVC detects this at startup and registers a <code>MappingJacksonHttpMessageConverter</code>, which will convert any java.lang.Objects to Strings.</p>
+<pre><code class="language-java"><span class="nd">@ResponseBody</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/docs/expenses"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">)</span>
+<span class="nd">@ResponseStatus</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="n">HttpStatus</span><span class="o">.</span><span class="na">CREATED</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">Long</span> <span class="nf">createNewExpense</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="s">"description"</span><span class="o">)</span><span class="n">String</span> <span class="n">description</span>
+    <span class="o">,</span> <span class="nd">@RequestParam</span><span class="o">(</span><span class="s">"amount"</span><span class="o">)</span><span class="n">Double</span> <span class="n">amount</span><span class="o">,</span> <span class="nd">@RequestParam</span><span class="o">(</span><span class="s">"expenseTypeId"</span><span class="o">)</span><span class="n">Long</span> <span class="n">expenseTypeVal</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ExpenseType</span> <span class="n">expenseType</span> <span class="o">=</span> <span class="n">expenseTypeService</span><span class="o">.</span><span class="na">getExpenseTypeById</span><span class="o">(</span><span class="n">expenseTypeVal</span><span class="o">);</span>
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">getUser</span><span class="o">();</span>
+    <span class="n">Long</span> <span class="n">expenseId</span> <span class="o">=</span> <span class="n">expenseService</span><span class="o">.</span><span class="na">createExpense</span><span class="o">(</span><span class="n">description</span><span class="o">,</span> <span class="n">expenseType</span><span class="o">,</span> <span class="k">new</span> <span class="n">Date</span><span class="o">(),</span>
+            <span class="n">amount</span><span class="o">,</span> <span class="n">user</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">expenseId</span><span class="o">;</span>
+<span class="o">}</span></code></pre>
+
+<p>In the method below, we have used <code>ModelMap</code>. It is a place where you can store key/value pairs to be used by the view in rendering a response.  It is through this context that you request specific information in the response.</p>
+
+<pre><code class="language-java"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/docs/"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">getExpenses</span><span class="o">(</span><span class="n">ModelMap</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+     <span class="n">List</span><span class="o">&lt;</span><span class="n">ExpenseType</span><span class="o">&gt;</span> <span class="n">expenseTypeList</span> <span class="o">=</span> <span class="n">expenseTypeService</span><span class="o">.</span><span class="na">getAllExpenseType</span><span class="o">();</span>
+     <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"expenseTypeList"</span><span class="o">,</span> <span class="n">expenseTypeList</span><span class="o">);</span>
+     <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"user"</span><span class="o">,</span> <span class="n">getUser</span><span class="o">());</span>
+     <span class="k">return</span> <span class="s">"expensereports"</span><span class="o">;</span>
+<span class="o">}</span></code></pre>
+
+<p>In our controller, we have gathered some data about the expense types and made them available in the ModelMap using the autowired ExpenseTypeService reference. We can also use HTTP requests to store key/value pairs of data. To use HttpServletRequest, simply add another argument of type HttpServletRequest.</p>
+
+<p>Since HTML only supports two methods: POST and GET. To use the DELETE and PUT methods, add <code>HiddenHttpMethodFilter</code> into your web.xml. Now use the Spring form tag with method as <code>delete</code> or use Ajax. It inspects the request and looks for a request parameter (usually called <code>_method</code>) that informs how it’s to transform the request.</p>
+
+<pre><code class="language-xml"><span class="nt">&lt;filter&gt;</span>
+    <span class="nt">&lt;filter-name&gt;</span>hiddenHttpMethodFilter<span class="nt">&lt;/filter-name&gt;</span>
+    <span class="nt">&lt;filter-class&gt;</span>org.springframework.web.filter.HiddenHttpMethodFilter<span class="nt">&lt;/filter-class&gt;</span>
+<span class="nt">&lt;/filter&gt;</span>
+<span class="nt">&lt;filter-mapping&gt;</span>
+    <span class="nt">&lt;filter-name&gt;</span>hiddenHttpMethodFilter<span class="nt">&lt;/filter-name&gt;</span>
+    <span class="nt">&lt;url-pattern&gt;</span>/<span class="nt">&lt;/url-pattern&gt;</span>
+    <span class="nt">&lt;servlet-name&gt;</span>appServlet<span class="nt">&lt;/servlet-name&gt;</span>
+<span class="nt">&lt;/filter-mapping&gt;</span></code></pre>
+
+<p>You can get the controller class code <a href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/controllers.html">here</a>.</p>
+
+<h2 id="step-4-configuring-the-expensereport-application">
+<strong>Step 4:</strong> Configuring the ExpenseReport application</h2>
+<p>In order to work with data from a PostgreSQL database, we need to obtain a connection to the database in order to define the dataSource bean. If your PostgreSQL server requires authentication, put the username and password of your PostgreSQL server in the dataSource bean. Define an interface <code>DataSourceConfiguration</code> in the <code>com.springsource.html5expense.config</code> package to get <code>dataSource</code>. Now implement this interface for your local datasource as <code>LocalDataSourceConfiguration</code> and use the <code>@Profile("local")</code> annotation.</p>
+
+<pre><code class="language-java"><span class="nd">@Configuration</span>
+<span class="nd">@Profile</span><span class="o">(</span><span class="s">"local"</span><span class="o">)</span>
+<span class="nd">@PropertySource</span><span class="o">(</span><span class="s">"/docs/db.properties"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LocalDataSourceConfiguration</span> <span class="kd">implements</span> <span class="n">DataSourceConfiguration</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">PropertyResolver</span> <span class="n">propertyResolver</span><span class="o">;</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">DataSource</span> <span class="nf">dataSource</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">SimpleDriverDataSource</span> <span class="n">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDriverDataSource</span><span class="o">();</span>
+        <span class="n">dataSource</span><span class="o">.</span><span class="na">setUrl</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"jdbc:postgresql://%s:%s/%s"</span><span class="o">,</span>
+                 <span class="n">propertyResolver</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"postgres.host"</span><span class="o">),</span>
+                 <span class="n">propertyResolver</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"postgres.port"</span><span class="o">),</span>
+                 <span class="n">propertyResolver</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"postgres.db.name"</span><span class="o">)));</span>
+        <span class="n">dataSource</span><span class="o">.</span><span class="na">setDriverClass</span><span class="o">(</span><span class="n">org</span><span class="o">.</span><span class="na">postgresql</span><span class="o">.</span><span class="na">Driver</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">dataSource</span><span class="o">.</span><span class="na">setUsername</span><span class="o">(</span><span class="n">propertyResolver</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"postgres.username"</span><span class="o">));</span>
+        <span class="n">dataSource</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="n">propertyResolver</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"postgres.password"</span><span class="o">));</span>
+        <span class="k">return</span> <span class="n">dataSource</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+
+<p>Now implement <code>DataSourceConfiguration</code> for your Cloud Foundry datasource as <code>CloudDataSourceConfiguration</code> and use <code>@Profile("cloud")</code> annotation. To use the Cloud Foundry API, add the following dependency in your <code>pom.xml</code>:</p>
+<pre><code class="language-xml"><span class="nt">&lt;dependency&gt;</span>
+   <span class="nt">&lt;groupId&gt;</span>org.cloudfoundry<span class="nt">&lt;/groupId&gt;</span>
+   <span class="nt">&lt;artifactId&gt;</span>cloudfoundry-runtime<span class="nt">&lt;/artifactId&gt;</span>
+   <span class="nt">&lt;version&gt;</span>0.8.2<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span></code></pre>
+
+<pre><code class="language-java"><span class="nd">@Configuration</span>
+<span class="nd">@Profile</span><span class="o">(</span><span class="s">"cloud"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CloudDataSourceConfiguration</span> <span class="kd">implements</span> <span class="n">DataSourceConfiguration</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">CloudEnvironment</span> <span class="n">cloudEnvironment</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CloudEnvironment</span><span class="o">();</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">DataSource</span> <span class="nf">dataSource</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Collection</span><span class="o">&lt;</span><span class="n">RdbmsServiceInfo</span><span class="o">&gt;</span> <span class="n">psqlServiceInfo</span> <span class="o">=</span> <span class="n">cloudEnvironment</span><span class="o">.</span>
+                                   <span class="n">getServiceInfos</span><span class="o">(</span><span class="n">RdbmsServiceInfo</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">RdbmsServiceCreator</span> <span class="n">dataSourceCreator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RdbmsServiceCreator</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">dataSourceCreator</span><span class="o">.</span><span class="na">createService</span><span class="o">(</span><span class="n">psqlServiceInfo</span><span class="o">.</span><span class="na">iterator</span><span class="o">().</span><span class="na">next</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+
+<p>Now we have declared two datasources, one for your local environment and another for the Cloud Foundry environment. To avoid switching back from one database to another, we can make the selected profile active. Based on the active profile, only that particular bean should be created. We can select the active profiles based on the environment, create a class called <code>ExpenseReportAppContextInitializer</code> in <code>com.springsource.html5expense.web</code> and implement <code>ApplicationContextInitializer</code>. The ApplicationContextInitializer is used to set active profiles and register custom property sources.</p>
+
+<pre><code class="language-java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExpenseReportAppContextInitializer</span> <span class="kd">implements</span>
+        <span class="n">ApplicationContextInitializer</span><span class="o">&lt;</span><span class="n">AnnotationConfigWebApplicationContext</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">CloudEnvironment</span> <span class="n">cloudEnvironment</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CloudEnvironment</span><span class="o">();</span>
+
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isCloudFoundry</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">cloudEnvironment</span><span class="o">.</span><span class="na">isCloudFoundry</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="n">AnnotationConfigWebApplicationContext</span> <span class="n">applicationContext</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">profile</span> <span class="o">=</span> <span class="s">"local"</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">isCloudFoundry</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">profile</span> <span class="o">=</span> <span class="s">"cloud"</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">applicationContext</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">().</span><span class="na">setActiveProfiles</span><span class="o">(</span><span class="n">profile</span><span class="o">);</span>
+        <span class="n">applicationContext</span><span class="o">.</span><span class="na">refresh</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+
+<p>The application needs to be configured in order to make it ready to deploy. Add the following classes: <code>ComponentConfig</code>, <code>WebConfig</code> in the <code>com.springsource.html5expense.config</code> package. The ComponentConfig class has been marked with a <code>@Configuration</code> annotation to configure beans. This is an alternative to XML configuration for bean definition. We can pass this class as an argument to the Spring container as a source for bean creation.</p>
+<pre><code class="language-java"><span class="nd">@Configuration</span>
+<span class="nd">@EnableTransactionManagement</span>
+<span class="nd">@ComponentScan</span><span class="o">(</span><span class="n">basePackageClasses</span> <span class="o">=</span> <span class="o">{</span><span class="n">JpaExpenseService</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+        <span class="n">ExpenseController</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">Expense</span><span class="o">.</span><span class="na">class</span> <span class="o">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComponentConfig</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span> <span class="kd">private</span> <span class="n">DataSourceConfiguration</span> <span class="n">dataSourceConfiguration</span><span class="o">;</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">LocalContainerEntityManagerFactoryBean</span> <span class="nf">entityManagerFactory</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">LocalContainerEntityManagerFactoryBean</span> <span class="n">emfb</span> <span class="o">=</span>
+                     <span class="k">new</span> <span class="nf">LocalContainerEntityManagerFactoryBean</span><span class="o">();</span>
+        <span class="n">emfb</span><span class="o">.</span><span class="na">setJpaVendorAdapter</span><span class="o">(</span><span class="n">jpaAdapter</span><span class="o">());</span>
+        <span class="n">emfb</span><span class="o">.</span><span class="na">setDataSource</span><span class="o">(</span><span class="n">dataSourceConfiguration</span><span class="o">.</span><span class="na">dataSource</span><span class="o">());</span>
+        <span class="n">emfb</span><span class="o">.</span><span class="na">setJpaPropertyMap</span><span class="o">(</span><span class="n">jpaPropertyMap</span><span class="o">());</span>
+        <span class="n">emfb</span><span class="o">.</span><span class="na">setJpaDialect</span><span class="o">(</span><span class="k">new</span> <span class="n">HibernateJpaDialect</span><span class="o">());</span>
+        <span class="n">emfb</span><span class="o">.</span><span class="na">setPackagesToScan</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">[]{</span><span class="n">Expense</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getPackage</span><span class="o">().</span><span class="na">getName</span><span class="o">()});</span>
+        <span class="k">return</span> <span class="n">emfb</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">JpaVendorAdapter</span> <span class="nf">jpaAdapter</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">HibernateJpaVendorAdapter</span> <span class="n">hibernateJpaVendorAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HibernateJpaVendorAdapter</span><span class="o">();</span>
+        <span class="n">hibernateJpaVendorAdapter</span><span class="o">.</span><span class="na">setShowSql</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="n">hibernateJpaVendorAdapter</span><span class="o">.</span><span class="na">setDatabase</span><span class="o">(</span><span class="n">Database</span><span class="o">.</span><span class="na">POSTGRESQL</span><span class="o">);</span>
+        <span class="n">hibernateJpaVendorAdapter</span><span class="o">.</span><span class="na">setShowSql</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="n">hibernateJpaVendorAdapter</span><span class="o">.</span><span class="na">setGenerateDdl</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">hibernateJpaVendorAdapter</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">jpaPropertyMap</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">cfg</span><span class="o">.</span><span class="na">Environment</span><span class="o">.</span><span class="na">HBM2DDL_AUTO</span><span class="o">,</span> <span class="s">"create"</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">cfg</span><span class="o">.</span><span class="na">Environment</span><span class="o">.</span><span class="na">HBM2DDL_IMPORT_FILES</span><span class="o">,</span> <span class="s">"import.sql"</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"hibernate.c3p0.min_size"</span><span class="o">,</span> <span class="s">"5"</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"hibernate.c3p0.max_size"</span><span class="o">,</span> <span class="s">"20"</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"hibernate.c3p0.timeout"</span><span class="o">,</span> <span class="s">"360000"</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"hibernate.dialect"</span><span class="o">,</span> <span class="s">"org.hibernate.dialect.PostgreSQLDialect"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">map</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+
+<p>To declare a bean, simply annotate a method with the <code>@Bean</code> annotation in your config class. This method is used to register a bean definition within an ApplicationContext of the type specified as the method’s return value. By default, the bean name will be the same as the method name.</p>
+
+<p>To enable declarative transaction management, add a <code>@EnableTransactionManagement</code> annotation to the ComponentConfig class. The <code>@EnableTransactionManagement</code> annotation is responsible for Spring’s annotation-driven transaction management capability, similar to the support found in Spring’s &lt;tx:*&gt; XML namespace. This annotation will search for a bean of type PlatformTransactionManager registered in the context so define a bean <code>PlatformTransactionManager</code> in ComponentConfig class.</p>
+<pre><code class="language-java"><span class="nd">@Bean</span>
+<span class="kd">public</span> <span class="n">PlatformTransactionManager</span> <span class="nf">transactionManager</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="n">JpaTransactionManager</span> <span class="n">transactionManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JpaTransactionManager</span><span class="o">();</span>
+    <span class="n">transactionManager</span><span class="o">.</span><span class="na">setEntityManagerFactory</span><span class="o">(</span><span class="n">entityManagerFactory</span><span class="o">().</span><span class="na">getObject</span><span class="o">());</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">jpaProperties</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
+    <span class="n">jpaProperties</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"transactionTimeout"</span><span class="o">,</span> <span class="s">"43200"</span><span class="o">);</span>
+    <span class="n">transactionManager</span><span class="o">.</span><span class="na">setJpaPropertyMap</span><span class="o">(</span><span class="n">jpaProperties</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">transactionManager</span><span class="o">;</span>
+<span class="o">}</span></code></pre>
+
+<p>Next, configure the components using <code>@ComponentScan</code>. It will Configure component scanning directives for use with <code>@Configuration</code> classes and provides parallel support with Spring XML’s <code>&lt;context:component-scan&gt;</code> element, passing a basePackageClasses() or basePackages() value.</p>
+
+<p>Create a new file <code>import.sql</code> in <code>src/main/resources</code> and add sql statements.</p>
+<pre><code class="language-sql"><span class="k">insert</span> <span class="k">into</span> <span class="k">role</span><span class="p">(</span><span class="n">roleid</span><span class="p">,</span><span class="n">rolename</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="n">nextval</span><span class="p">(</span><span class="s1">'hibernate_sequence'</span><span class="p">),</span><span class="s1">'ROLE_USER'</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="k">role</span><span class="p">(</span><span class="n">roleid</span><span class="p">,</span><span class="n">rolename</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="n">nextval</span><span class="p">(</span><span class="s1">'hibernate_sequence'</span><span class="p">),</span><span class="s1">'ROLE_MANAGER'</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">users</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span><span class="n">emailid</span><span class="p">,</span><span class="n">enabled</span><span class="p">,</span><span class="n">password</span><span class="p">,</span><span class="n">username</span><span class="p">,</span><span class="n">role_roleid</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="n">nextval</span><span class="p">(</span><span class="s1">'hibernate_sequence'</span><span class="p">),</span><span class="s1">'admin@expense.com'</span><span class="p">,</span><span class="k">true</span><span class="p">,</span><span class="s1">'admin'</span><span class="p">,</span><span class="s1">'admin'</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">expenseType</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="n">nextval</span><span class="p">(</span><span class="s1">'hibernate_sequence'</span><span class="p">),</span><span class="s1">'MEDICAL'</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">expenseType</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="n">nextval</span><span class="p">(</span><span class="s1">'hibernate_sequence'</span><span class="p">),</span><span class="s1">'TRAVEL'</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">expenseType</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="n">nextval</span><span class="p">(</span><span class="s1">'hibernate_sequence'</span><span class="p">),</span><span class="s1">'TELEPHONE'</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">expenseType</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="n">nextval</span><span class="p">(</span><span class="s1">'hibernate_sequence'</span><span class="p">),</span><span class="s1">'GYM'</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">expenseType</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="n">nextval</span><span class="p">(</span><span class="s1">'hibernate_sequence'</span><span class="p">),</span><span class="s1">'EDUCATION'</span><span class="p">);</span></code></pre>
+
+<p>To execute these statements automatically in the database when the app starts, we have set
+ these two properties in the entityManagerFactory bean.</p>
+<pre><code class="language-java"><span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">cfg</span><span class="o">.</span><span class="na">Environment</span><span class="o">.</span><span class="na">HBM2DDL_AUTO</span><span class="o">,</span> <span class="s">"create"</span><span class="o">);</span>
+<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">cfg</span><span class="o">.</span><span class="na">Environment</span><span class="o">.</span><span class="na">HBM2DDL_IMPORT_FILES</span><span class="o">,</span> <span class="s">"import.sql"</span><span class="o">);</span></code></pre>
+
+<p>Modify the <code>db.properties</code> file properties database username, password, and database name according to your local database.</p>
+
+<p>To load ComponentConfig class as part of contextConfigLocation, add contextClass as <code>AnnotationConfigWebApplicationContext</code> and <code>contextConfigLocation</code> as
+com.springsource.html5expense.config. Then set <code>contextInitializerClasses</code> as ExpenseReportAppContextInitializer.</p>
+<pre><code class="language-xml"><span class="nt">&lt;context-param&gt;</span>
+    <span class="nt">&lt;param-name&gt;</span>contextInitializerClasses<span class="nt">&lt;/param-name&gt;</span>
+    <span class="nt">&lt;param-value&gt;</span>
+       com.springsource.html5expense.web.ExpenseReportAppContextInitializer
+    <span class="nt">&lt;/param-value&gt;</span>
+<span class="nt">&lt;/context-param&gt;</span>
+<span class="nt">&lt;context-param&gt;</span>
+    <span class="nt">&lt;param-name&gt;</span>contextClass<span class="nt">&lt;/param-name&gt;</span>
+    <span class="nt">&lt;param-value&gt;</span>
+      org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+    <span class="nt">&lt;/param-value&gt;</span>
+<span class="nt">&lt;/context-param&gt;</span>
+<span class="nt">&lt;context-param&gt;</span>
+   <span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+   <span class="nt">&lt;param-value&gt;</span>com.springsource.html5expense.config<span class="nt">&lt;/param-value&gt;</span>
+ <span class="nt">&lt;/context-param&gt;</span></code></pre>
+
+<p>You can get the Config classes <a href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/config.html">here</a>.</p>
+
+<h2 id="step-5-adding-view-files">
+<strong>Step 5:</strong> Adding View Files</h2>
+<p>The ExpenseReport app service is ready. To get users to interact with it, it needs a user interface. To resolve the Controller’s return <code>view</code> value, we have defined InternalViewResolver.</p>
+
+<pre><code class="language-java"><span class="nd">@Bean</span>
+<span class="kd">public</span> <span class="n">InternalResourceViewResolver</span> <span class="nf">internalResourceViewResolver</span><span class="o">()</span> <span class="o">{</span>
+     <span class="n">InternalResourceViewResolver</span> <span class="n">internalResourceViewResolver</span> <span class="o">=</span>
+                           <span class="k">new</span> <span class="nf">InternalResourceViewResolver</span><span class="o">();</span>
+     <span class="n">internalResourceViewResolver</span><span class="o">.</span><span class="na">setPrefix</span><span class="o">(</span><span class="s">"/docs/WEB-INF/views/"</span><span class="o">);</span>
+     <span class="n">internalResourceViewResolver</span><span class="o">.</span><span class="na">setSuffix</span><span class="o">(</span><span class="s">".jsp"</span><span class="o">);</span>
+     <span class="k">return</span> <span class="n">internalResourceViewResolver</span><span class="o">;</span>
+<span class="o">}</span></code></pre>
+
+<p>The application requires the following files to be added: <code>login.jsp</code>, <code>expensereports.jsp</code>, and <code>signup.jsp</code> (in the <code>webapp/WEB-INF/view</code> folder). You can download the jsp files <a href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/views.html">here</a>.</p>
+
+<h2 id="check-point">Check Point</h2>
+<ol>
+<li>
+    <p>Select your project, drag it down and drop into your VMware vFabric tc server listed in the bottom left Server window.</p>
+  </li>
+  <li>
+    <p>Select VMware vFabric tc server and click the start button to run the server.</p>
+  </li>
+  <li>
+    <p>Once the server starts, open your browser and enter the application url : <code>http://localhost:8080/html5expense/expenses/1</code>. You will get an empty response since we haven’t created any expense.</p>
+  </li>
+  <li>
+    <p>Go to your PostgreSQL client and give the command <strong>\dt</strong>. It will list all the tables in the database so you can check that new tables have been created for the Entities.</p>
+  </li>
+</ol><pre><code class="language-sql"><span class="n">postgres</span><span class="o">=#</span> <span class="err">\</span><span class="n">dt</span>
+                 <span class="n">List</span> <span class="k">of</span> <span class="n">relations</span>
+ <span class="k">Schema</span> <span class="o">|</span>          <span class="n">Name</span>          <span class="o">|</span> <span class="k">Type</span>  <span class="o">|</span>  <span class="k">Owner</span>
+<span class="c1">--------+------------------------+-------+----------</span>
+ <span class="k">public</span> <span class="o">|</span> <span class="n">expense</span>                <span class="o">|</span> <span class="k">table</span> <span class="o">|</span> <span class="n">postgres</span>
+ <span class="k">public</span> <span class="o">|</span> <span class="n">expensetype</span>            <span class="o">|</span> <span class="k">table</span> <span class="o">|</span> <span class="n">postgres</span>
+ <span class="k">public</span> <span class="o">|</span> <span class="k">role</span>                   <span class="o">|</span> <span class="k">table</span> <span class="o">|</span> <span class="n">postgres</span>
+ <span class="k">public</span> <span class="o">|</span> <span class="n">users</span>                  <span class="o">|</span> <span class="k">table</span> <span class="o">|</span> <span class="n">postgres</span>
+<span class="p">(</span><span class="mi">4</span> <span class="k">rows</span><span class="p">)</span></code></pre>
+
+<h2 id="complete-application-code">Complete Application Code</h2>
+<p>If you are getting any errors, download the Exercise2-Complete code and import into STS.</p>
+
+<h2 id="deploying-to-cloud-foundry">Deploying to Cloud Foundry</h2>
+<ul>
+<li>To learn how to deploy a Spring App using PostgreSQL to Cloud Foundry, please refer <a href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-app-with-postgresql-deployment-to-cloudfoundry.html">here</a>.</li>
+</ul><p><a class="button-plain" style="padding: 3px 15px;" href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-template-project.html">Prev</a><a class="button-plain" style="padding: 3px 15px; float: right" href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/expensereport-app-with-spring-security.html">Next</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='container' id='footer'>
+<div class='site-wrap'>
+<div class='row'>
+<div class='span-3 social-icons'>
+<a class='twitter replaced' href='http://twitter.com/cloudfoundry' rel='external' target='_blank'>Twitter</a>
+<a class='facebook replaced' href='http://facebook.com/cloudfoundry' rel='external' target='_blank'>Facebook</a>
+<a class='youtube replaced' href='http://www.youtube.com/cloudfoundry' rel='external' target='_blank'>YouTube</a>
+</div>
+<div class='prepend-2 span-5'>
+<p>
+<a href='http://www.cloudfoundry.com/faq'>FAQ</a>
+|
+<a href='http://stackoverflow.com/questions/tagged/cloudfoundry' rel='external'>Forums</a>
+|
+<a href='http://blog.cloudfoundry.com' rel='external'>Blog</a>
+|
+<a href='http://www.cloudfoundry.com/jobs'>Jobs</a>
+|
+<a href='http://www.cloudfoundry.com/legal'>Legal</a>
+|
+<a href='http://www.cloudfoundry.com/terms'>Terms</a>
+|
+<a href='http://www.vmware.com/help/privacy.html' rel='external' target='_blank'>Privacy</a>
+</p>
+</div>
+<div class='span-5 last right'>
+<p>Copyright &copy; 2012 VMware, Inc. All rights reserved.</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22181585-10']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    
+    $(document).ready(function() {
+      $('#social-share').dcSocialShare({
+        buttonSize: 'horizontal',
+        buttons: 'facebook,twitter,plusone,linkedin',
+        location: 'top',
+        align: 'right',
+        offsetLocation: 260,
+        offsetAlign: 100,
+        width: 80,
+        center: true,
+        centerPx: 600,
+        disableFloat: true,
+        tabText: '',
+        twitterId: 'cloudfoundry'
+      });
+    });
+  //]]>
+</script>
+</body>
+</html>

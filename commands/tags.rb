@@ -39,7 +39,7 @@ run do |opts, args, cmd|
     content = "---\ntitle: #{tag}\ndescription: Articles for #{tag}\n---\n\n"
     main_content << "* [#{tag}](/tags/#{tag}) -- #{items.count} articles\n"
     items.each do |item|
-      content << "* [#{item[:title]}](#{item.path}) - #{item[:description]}\n"
+      content << "* [#{item[:title]}](/docs#{item.path}) - #{item[:description]}\n"
     end
     file = File.new("content/tags/#{tag}.md", "w")
     file.write(content)

@@ -16,10 +16,10 @@ This is a guide for Rails 3.1 and 3.2 developers using Cloud Foundry. It makes t
 For more information about Ruby and Cloud Foundry, see:
 
 +  [Ruby on Rails](http://rubyonrails.org/)
-+  [Getting Started with Cloud Foundry](/getting-started.html)
++  [Getting Started with Cloud Foundry](/docs/getting-started.html)
 +  [Ruby Application Development with Cloud Foundry](ruby.html)
 
-Using Cloud Foundry services with Ruby on Rails is the same as using services with Sinatra applications, except that MySQL is recognized automatically when you stage a Rails application on Cloud Foundry. For other Cloud Foundry services, you must access the `VCAP_SERVICES` environment variable, as described in [Ruby Application Development with Cloud Foundry](/frameworks/ruby/ruby.html#using-cloud-foundry-services).
+Using Cloud Foundry services with Ruby on Rails is the same as using services with Sinatra applications, except that MySQL is recognized automatically when you stage a Rails application on Cloud Foundry. For other Cloud Foundry services, you must access the `VCAP_SERVICES` environment variable, as described in [Ruby Application Development with Cloud Foundry](/docs/frameworks/ruby/ruby.html#using-cloud-foundry-services).
 
 ## Rails 3.1.2 and 3.2 on Ruby 1.8 and Ruby 1.9
 

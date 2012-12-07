@@ -63,4 +63,4 @@ The `credentials` object contains all of the data you need to connect to MySQL t
 + `password` is the user's MySQL password
 + `name` is the name of the MySQL database
 
-Look for language- and framework-specific examples using MySQL in the [Services](/services.html) section of the Cloud Foundry Getting Started Website.
+Look for language- and framework-specific examples using MySQL in the [Services](/docs/services.html) section of the Cloud Foundry Getting Started Website.

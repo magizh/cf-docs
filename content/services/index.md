@@ -16,7 +16,7 @@ Cloud Foundry has support for the following services:
 + [Redis](http://redis.io/), the open key-value data structure server.
 + [RabbitMQ](http://www.rabbitmq.com/), for reliable, scalable, and portable messaging for your applications.
 
-You can run these services locally while you develop your application, or you can use [Micro Cloud Foundry](/infrastructure/micro/installing-mcf.html) to host your application. An advantage when using Micro Cloud Foundry is that your application runs in an environment that is very similar to Cloud Foundry. Also, with Micro Cloud Foundry, you do not have to tool your application to connect to different services for your development and deployment environments.
+You can run these services locally while you develop your application, or you can use [Micro Cloud Foundry](/docs/infrastructure/micro/installing-mcf.html) to host your application. An advantage when using Micro Cloud Foundry is that your application runs in an environment that is very similar to Cloud Foundry. Also, with Micro Cloud Foundry, you do not have to tool your application to connect to different services for your development and deployment environments.
 
 To access Cloud Foundry services from your application, you first create a service, and then bind it to your application. When your application runs on Cloud Foundry, the environment contains a `VCAP_SERVICES` variable that has information about all the services bound to the application. The content of this variable is a JSON document.
 

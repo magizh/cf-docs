@@ -20,11 +20,11 @@ Follow these steps to access the Remote Systems View.
 
 *  Under the Application Details pane, click **Remote Systems View**.
 
-    ![Remote Systems View](/images/screenshots/configuring-STS/cf_eclipse_remote_view_link.png)
+    ![Remote Systems View](/docs/images/screenshots/configuring-STS/cf_eclipse_remote_view_link.png)
 
     The Remote Systems View appears in the Eclipse workbench.
 
 *  Browse the file tree and open files. Right-click a file to see the options
    that are available to you.
 
-    ![Browsing Files in Remote Files view](/images/screenshots/configuring-STS/cf_eclipse_remote_systems_view.png)
+    ![Browsing Files in Remote Files view](/docs/images/screenshots/configuring-STS/cf_eclipse_remote_systems_view.png)

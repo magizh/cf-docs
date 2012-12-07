@@ -49,4 +49,4 @@ prompt$ vmc files hotels tomcat/logs/catalina.2011-10-18.log  > catalina.log
 ```
 
 
-You could also try [Debugging Applications with Cloud Foundry Integration for Eclipse](/tools/STS/debugging-CF-Eclipse.html).
+You could also try [Debugging Applications with Cloud Foundry Integration for Eclipse](/docs/tools/STS/debugging-CF-Eclipse.html).

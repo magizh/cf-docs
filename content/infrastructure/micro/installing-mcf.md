@@ -60,10 +60,10 @@ Before you begin, be sure you have these items:
 
 +   [VMware Workstation][1], [VMware Fusion][2] (Mac), or [VMware Player][3] installed.
 
-+   Ruby and the [vmc](/tools/vmc/installing-vmc.html) gem installed.
++   Ruby and the [vmc](/docs/tools/vmc/installing-vmc.html) gem installed.
 
 +   If you develop in Java, [Spring Tool Suite (STS)] or Eclipse with
-the VMware Cloud Foundry plug-in installed. See [Configuring Spring Tool Suite or Eclipse for Cloud Foundry](/tools/STS/configuring-STS.html).
+the VMware Cloud Foundry plug-in installed. See [Configuring Spring Tool Suite or Eclipse for Cloud Foundry](/docs/tools/STS/configuring-STS.html).
 
 [1]: http://www.vmware.com/products/workstation/overview.html
 [2]: http://www.vmware.com/products/fusion/overview.html
@@ -79,13 +79,13 @@ the VMware Cloud Foundry plug-in installed. See [Configuring Spring Tool Suite o
 
 3.  Enter a unique domain name for your Micro Cloud Foundry. The name you enter is checked in real-time so you can see if it is available.
 
-	![Create Domain](/images/screenshots/installing-mcf/micro_dns.jpg "Micro DNS")
+	![Create Domain](/docs/images/screenshots/installing-mcf/micro_dns.jpg "Micro DNS")
 
 4.  Click **Create**.
 
     Your new domain name is reserved and a configuration token is created for you.
 
-	![Domain Reserved](/images/screenshots/installing-mcf/micro_reserved.png "Domain Reserved")
+	![Domain Reserved](/docs/images/screenshots/installing-mcf/micro_reserved.png "Domain Reserved")
 
 5.  Write down the configuration token. You will need it in a later step.
 
@@ -142,7 +142,7 @@ Enter Micro Cloud Foundry configuration token or offline domain name: clover-eas
 The Micro Cloud Foundry virtual machine verifies your DNS and configures the Micro Cloud.
 
 **Note**
-: If you plan to use Micro Cloud Foundry without an Internet connection, enter a fictitious domain name instead of the DNS configuration token. This is an advanced configuration option described in [Using Micro Cloud Foundry](/infrastructure/micro/using-mcf.html#working-offline-with-micro-cloud-foundry).
+: If you plan to use Micro Cloud Foundry without an Internet connection, enter a fictitious domain name instead of the DNS configuration token. This is an advanced configuration option described in [Using Micro Cloud Foundry](/docs/infrastructure/micro/using-mcf.html#working-offline-with-micro-cloud-foundry).
 
 
 ## Registering a Micro Cloud Foundry User with vmc
@@ -151,14 +151,14 @@ Registering a user creates a user account on the Micro Cloud Foundry virtual
 machine. You log in with this account to publish and manage applications.
 
 *Notes:*
-: See [Installing the Command-Line Interface (vmc)](/tools/vmc/installing-vmc.html) for
+: See [Installing the Command-Line Interface (vmc)](/docs/tools/vmc/installing-vmc.html) for
     help installing `vmc`.
 
-: See [VMC Quick Reference](/tools/vmc/vmc-quick-ref.html) for additional information
+: See [VMC Quick Reference](/docs/tools/vmc/vmc-quick-ref.html) for additional information
     about using the `vmc` command.
 
 : See [Configuring Spring Tool Suite or Eclipse for Cloud
-    Foundry](/tools/STS/configuring-STS.html) for help setting up the Cloud Foundry
+    Foundry](/docs/tools/STS/configuring-STS.html) for help setting up the Cloud Foundry
     Integration plug-in in STS or Eclipse and for registering a Micro Cloud
     Foundry user from within the plug-in.
 

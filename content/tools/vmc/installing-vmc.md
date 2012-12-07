@@ -33,17 +33,17 @@ If you have already installed Ruby and RubyGems, then you can skip to [Installin
 
 The following sections provide basic information about installing Ruby and RubyGems on Windows and a variety of Linux computers:
 
-+ [Windows](/frameworks/ruby/installing-ruby.html#windows)
-+ [Mac OS X](/frameworks/ruby/installing-ruby.html#mac-os-x)
-+ [Ubuntu](/frameworks/ruby/installing-ruby.html#ubuntu)
-+ [Redhat/Fedora](/frameworks/ruby/installing-ruby.html#redhatfedora)
-+ [Centos](/frameworks/ruby/installing-ruby.html#centos)
-+ [SuSE](/frameworks/ruby/installing-ruby.html#suse)
-+ [Debian](/frameworks/ruby/installing-ruby.html#debian)
++ [Windows](/docs/frameworks/ruby/installing-ruby.html#windows)
++ [Mac OS X](/docs/frameworks/ruby/installing-ruby.html#mac-os-x)
++ [Ubuntu](/docs/frameworks/ruby/installing-ruby.html#ubuntu)
++ [Redhat/Fedora](/docs/frameworks/ruby/installing-ruby.html#redhatfedora)
++ [Centos](/docs/frameworks/ruby/installing-ruby.html#centos)
++ [SuSE](/docs/frameworks/ruby/installing-ruby.html#suse)
++ [Debian](/docs/frameworks/ruby/installing-ruby.html#debian)
 
 ## Installing vmc: Procedure
 
-Installing `vmc` is easy once you have installed [Ruby and RubyGems](/frameworks/ruby/installing-ruby.html) on your computer.
+Installing `vmc` is easy once you have installed [Ruby and RubyGems](/docs/frameworks/ruby/installing-ruby.html) on your computer.
 
 *  If you haven't already done so, signup for your free [Cloud Foundry](http://cloudfoundry.com/) account.  You will receive an email with your user credentials.
 
@@ -63,7 +63,7 @@ prompt> gem install vmc
 * Execute the `vmc target` command to specify the Cloud Foundry target to which you will deploy your applications:
 
     + To deploy on the PaaS Cloud Foundry, specify `https://api.cloudfoundry.com`
-    + To deploy on your local Micro Cloud Foundry, specify `http://api.<appname>.cloudfoundry.me`, where *appname* is the domain you registered for your application at the Micro Cloud Foundry Web site.  See [Installing Micro Cloud Foundry](/infrastructure/micro/installing-mcf.html).
+    + To deploy on your local Micro Cloud Foundry, specify `http://api.<appname>.cloudfoundry.me`, where *appname* is the domain you registered for your application at the Micro Cloud Foundry Web site.  See [Installing Micro Cloud Foundry](/docs/infrastructure/micro/installing-mcf.html).
 
     The following command targets the PaaS Cloud Foundry:
 
@@ -175,7 +175,7 @@ Run your application in your browser by going to the URL you provided to the `vm
 
 If, for example, you deployed the Hello World Sinatra application, you should see the text `Hello from Cloud Foundry` in your browser.
 
-![hello-bob-app.png](/images/screenshots/installing-vmc/hello-bob-app.png)
+![hello-bob-app.png](/docs/images/screenshots/installing-vmc/hello-bob-app.png)
 
 ## Updating the Deployment
 
@@ -203,7 +203,7 @@ $ vmc update hello
 
 In your browser, refresh your application and you will see your changes:
 
-![hello-bob-app-updated.png](/images/screenshots/installing-vmc/hello-bob-app-updated.png)
+![hello-bob-app-updated.png](/docs/images/screenshots/installing-vmc/hello-bob-app-updated.png)
 
 ## Creating a Simple Sinatra Application
 
@@ -219,17 +219,17 @@ Using your favorite text editor, create a file called `hello.rb` in this new dir
 
 ``` ruby
 require 'sinatra'
-get '/' do
+get '/docs/' do
   "Hello from Cloud Foundry"
 end
 ```
 
-![hello.rb](/images/screenshots/installing-vmc/vmc_hello.jpg "hello app")
+![hello.rb](/docs/images/screenshots/installing-vmc/vmc_hello.jpg "hello app")
 
 ## Next Steps
 
-+ [Installing Micro Cloud Foundry](/infrastructure/micro/installing-mcf.html)
-+ [Deploying and Managing Applications](/tools/deploying-apps.html)
-+ [Configuring Applications to Use Cloud Foundry](/frameworks.html)
-+ [VMC Quick Reference Guide](/tools/vmc/vmc-quick-ref.html)
-+ [Debugging](/tools/vmc/debugging.html)
++ [Installing Micro Cloud Foundry](/docs/infrastructure/micro/installing-mcf.html)
++ [Deploying and Managing Applications](/docs/tools/deploying-apps.html)
++ [Configuring Applications to Use Cloud Foundry](/docs/frameworks.html)
++ [VMC Quick Reference Guide](/docs/tools/vmc/vmc-quick-ref.html)
++ [Debugging](/docs/tools/vmc/debugging.html)

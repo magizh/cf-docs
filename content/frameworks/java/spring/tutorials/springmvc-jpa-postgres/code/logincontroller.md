@@ -21,12 +21,12 @@ public class LoginController {
     @Autowired
     private RoleService roleService;
 
-    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    @RequestMapping(value = "/docs/signup", method = RequestMethod.GET)
     public String signUp() {
         return "signup";
     }
 
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    @RequestMapping(value = "/docs/signup", method = RequestMethod.POST)
     public String signUp(ModelMap model, @RequestParam("userName")String userName,
             @RequestParam("password")String password, @RequestParam("email")String mailId) {
         User user = userService.getUserByUserName(userName);
@@ -46,23 +46,23 @@ public class LoginController {
         }
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/docs/login", method = RequestMethod.GET)
     public String login(ModelMap model) {
         return "login";
     }
 
-    @RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
+    @RequestMapping(value = "/docs/loginfailed", method = RequestMethod.GET)
     public String loginerror(ModelMap model) {
         model.addAttribute("error", "true");
         return "login";
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @RequestMapping(value = "/docs/logout", method = RequestMethod.GET)
     public String logout(ModelMap model) {
         return "login";
     }
 
-    @RequestMapping(value = "/sessiontimeout", method = RequestMethod.GET)
+    @RequestMapping(value = "/docs/sessiontimeout", method = RequestMethod.GET)
     public String sessionTimeout(ModelMap model) {
         String errorMsg = "Session has expired. Please login";
         model.addAttribute("errorMsg", errorMsg);

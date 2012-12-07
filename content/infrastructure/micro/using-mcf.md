@@ -287,7 +287,7 @@ Follow these steps  whether you configured Micro Cloud Foundry with DHCP or a st
 
 The `vmc micro` command automates the steps described in the previous section. Review that section to understand how the command changes your configuration.
 
-Install the vmc gem, or upgrade it if needed. You need version 0.3.16.beta4 or greater. See [VMC Installation](/tools/vmc/installing-vmc.html) for instructions.
+Install the vmc gem, or upgrade it if needed. You need version 0.3.16.beta4 or greater. See [VMC Installation](/docs/tools/vmc/installing-vmc.html) for instructions.
 
 Here is the syntax for the `vmc micro` command:
 

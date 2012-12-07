@@ -16,4 +16,4 @@ Both tools provide the same functionality, so the decision of which one to use i
 
 You use both tools in the same way whether you are deploying to the VMware-hosted PaaS Cloud Foundry or to your local Micro Cloud Foundry; the only difference is in the initial targetting step.
 
-See [Installing VMC](/tools/vmc/installing-vmc.html) or [Installing the Cloud Foundry Eclipse Extension](/tools/STS/configuring-STS.html) for details on installing each tool.
+See [Installing VMC](/docs/tools/vmc/installing-vmc.html) or [Installing the Cloud Foundry Eclipse Extension](/docs/tools/STS/configuring-STS.html) for details on installing each tool.

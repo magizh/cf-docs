@@ -13,7 +13,7 @@ frameworks.
 This guide makes the following assumptions:
 
 -  You have [installed Ruby and Ruby Gems](installing-ruby.html)
--  You have [installed vmc](/tools/vmc/installing-vmc.html)
+-  You have [installed vmc](/docs/tools/vmc/installing-vmc.html)
 -  You have a [Cloud Foundry account](http://www.cloudfoundry.com/signup)
 -  You are proficient in developing Ruby applications with your framework of
    choice
@@ -45,15 +45,15 @@ before any `vmc push` or `vmc update` command.
 
 For more details see:
 
-+ [Ruby on Cloud Foundry](/frameworks/ruby/ruby-cf.html)
++ [Ruby on Cloud Foundry](/docs/frameworks/ruby/ruby-cf.html)
 
 ## Using Ruby on Rails with Cloud Foundry
 
 Ruby on Rails works well with Cloud Foundry. There are some differences in the
 requirements for Rails 3.0 and 3.1 or 3.2 which you can read about at these links:
 
-+   [Ruby on Rails 3.0](/frameworks/ruby/rails-3-0.html)
-+   [Ruby on Rails >= 3.1](/frameworks/ruby/rails-3-1.html)
++   [Ruby on Rails 3.0](/docs/frameworks/ruby/rails-3-0.html)
++   [Ruby on Rails >= 3.1](/docs/frameworks/ruby/rails-3-1.html)
 
 ## Using Cloud Foundry Services
 
@@ -68,7 +68,7 @@ You can use any of the following Cloud Foundry services in your Ruby application
 -   [Redis](http://redis.io/), the open source key-value data structure server
 
 While you develop your application, you can run these services locally, or you
-can use [Micro Cloud Foundry](/infrastructure/micro/installing-mcf.html) to host your application.
+can use [Micro Cloud Foundry](/docs/infrastructure/micro/installing-mcf.html) to host your application.
 An advantage of using Micro Cloud Foundry is that your application runs in an
 environment that is very similar to Cloud Foundry. Also, with Micro Cloud
 Foundry, you do not have to set up local services, and you do not have to tool
@@ -77,15 +77,15 @@ deployment environments.
 
 Following are examples and tutorials for using the Cloud Foundry services with Ruby and Ruby frameworks.
 
--   [MySQL](/services/mysql/ruby-mysql.html)
--   [MongoDB](/services/mongodb/ruby-mongodb.html)
--   [MongoDB with GridFS](/services/mongodb/ruby-mongodb-gridfs.html)
--   [RabbitMQ](/services/rabbitmq/ruby-rabbitmq.html)
+-   [MySQL](/docs/services/mysql/ruby-mysql.html)
+-   [MongoDB](/docs/services/mongodb/ruby-mongodb.html)
+-   [MongoDB with GridFS](/docs/services/mongodb/ruby-mongodb-gridfs.html)
+-   [RabbitMQ](/docs/services/rabbitmq/ruby-rabbitmq.html)
 
 ## What to do Next
 
--   [VMC Installation](/tools/vmc/installing-vmc.html) describes how to install the Cloud Foundry command-line interface. If you have Ruby installed, it is as simple as installing the vmc gem.
--   [VMC Quick Reference](/tools/vmc/vmc-quick-ref.html)
+-   [VMC Installation](/docs/tools/vmc/installing-vmc.html) describes how to install the Cloud Foundry command-line interface. If you have Ruby installed, it is as simple as installing the vmc gem.
+-   [VMC Quick Reference](/docs/tools/vmc/vmc-quick-ref.html)
 -   [Creating a Simple Ruby Application](ruby-simple.html) is a tutorial that shows you how to create a simple Sinatra application and deploy it to Cloud Foundry.
 -   [Ruby on Rails 3.0 Development with Cloud Foundry](rails-3-0.html) provides the information you need to successfully deploy Rails 3.0 applications on Cloud Foundry.
 -   [Ruby on Rails 3.1 Development with Cloud Foundry](rails-3-1.html) provides the information you need to successfully deploy Rails 3.1 applications on Cloud Foundry.

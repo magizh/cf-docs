@@ -15,7 +15,7 @@ Before you get started, you need the following:
 
 +	A [Cloud Foundry account](http://cloudfoundry.com/signup)
 
-+	The [vmc](/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
++	The [vmc](/docs/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
 
 +	A [Node.js](http://nodejs.org/) installation matching the version of Node.js on your Cloud Foundry instance. See [Checking the NodeJS version on your Cloud Foundry instance](#checking-the-nodejs-version-on-your-cloud-foundry-instance) below.
 
@@ -44,7 +44,7 @@ Create the file `app.js` with the following code:
 ```javascript
 
 var app = require('express').createServer();
-app.get('/', function(req, res) {
+app.get('/docs/', function(req, res) {
     res.send('Hello from Cloud Foundry');
 });
 app.listen(3000);
@@ -154,8 +154,8 @@ $ vmc runtimes
 
 ## Next Steps
 
-+	[Using Cloud Foundry MongoDB services](/services/mongodb/nodejs-mongodb.html) from Node.js applications
-+	[Using Cloud Foundry RabbitMQ services](/services/rabbitmq/nodejs-rabbitmq.html) from Node.js
++	[Using Cloud Foundry MongoDB services](/docs/services/mongodb/nodejs-mongodb.html) from Node.js applications
++	[Using Cloud Foundry RabbitMQ services](/docs/services/rabbitmq/nodejs-rabbitmq.html) from Node.js
 
 ## Read More
 

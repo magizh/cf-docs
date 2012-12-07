@@ -6,7 +6,7 @@ add the below jsp file as `login.jsp`
 <html>
     <head>
     <title>Login</title>
-    <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" />
+    <link rel="stylesheet" href="<c:url value="/docs/resources/css/style.css" />" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     </head>
     <body>
@@ -14,7 +14,7 @@ add the below jsp file as `login.jsp`
     <div class="blue-b">
     <div class="inside-nav">
         <div class="logo">
-            <img src="<c:url value="/resources/images/logo.png" />" />
+            <img src="<c:url value="/docs/resources/images/logo.png" />" />
         </div>
         <ul class="nav-a">
             <li>
@@ -73,22 +73,22 @@ add the below jsp file as `expensereports.jsp`
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
-    <script src="<c:url value="/resources/javascript/expensereport.js" />"></script>
-    <script src="<c:url value="resources/javascript/jquery.tablesorter.js"/>" ></script>
-    <script src="<c:url value="resources/javascript/jquery.pagination.js"/>" ></script>
-    <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" />
+    <script src="<c:url value="/docs/resources/javascript/expensereport.js" />"></script>
+    <script src="<c:url value="resources/javascript/jquery.tablesorter.js"/docs/>" ></script>
+    <script src="<c:url value="resources/javascript/jquery.pagination.js"/docs/>" ></script>
+    <link rel="stylesheet" href="<c:url value="/docs/resources/css/style.css" />" />
 </head>
 <body>
 <div id="contentWrapper">
    <div class="blue-b">
      <div class="inside-nav">
         <div class="logo">
-            <img src="<c:url value="/resources/images/logo.png" />" />
+            <img src="<c:url value="/docs/resources/images/logo.png" />" />
         </div>
         <ul class="nav-a">
             <li><a href="#">Hi ${user.userName}</a></li>
             <li>|</li>
-            <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
+            <li><a href="<c:url value="/docs/j_spring_security_logout" />">Logout</a></li>
          </ul>
      </div>
   </div>
@@ -160,7 +160,7 @@ add the below jsp file as `expensereports.jsp`
                             <td class="td-a">
                                 <h5 class="label-3">
                                     Date<i class="bg-arrow-down-a"><img
-                                        src="<c:url value="/resources/images/arrow-down-a.png"/>"></i>
+                                        src="<c:url value="/docs/resources/images/arrow-down-a.png"/docs/>"></i>
                                 </h5>
                             </td>
                             <td class="td-b">
@@ -179,7 +179,7 @@ add the below jsp file as `expensereports.jsp`
            </div>
         </div>
  </div>
-<input type="hidden" id="contextPath" value="${pageContext.request.contextPath}"/>
+<input type="hidden" id="contextPath" value="${pageContext.request.contextPath}"/docs/>
 </body>
 </html>
 ```
@@ -191,7 +191,7 @@ add the below jsp file as `signup.jsp`
 <html>
     <head>
     <title>Sign Up</title>
-    <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" />
+    <link rel="stylesheet" href="<c:url value="/docs/resources/css/style.css" />" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
       <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
@@ -233,7 +233,7 @@ add the below jsp file as `signup.jsp`
     <div class="blue-b">
     <div class="inside-nav">
         <div class="logo">
-            <img src="<c:url value="/resources/images/logo.png" />" />
+            <img src="<c:url value="/docs/resources/images/logo.png" />" />
         </div>
         
         <ul class="nav-a">

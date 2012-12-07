@@ -29,7 +29,7 @@ tags:
 
 
 #### <a id="getstarted"></a> How Do I Get Started on Cloud Foundry?
-For resources on getting started with Cloud Foundry, please refer to our [Getting Started Guide](/getting-started.html).
+For resources on getting started with Cloud Foundry, please refer to our [Getting Started Guide](/docs/getting-started.html).
 
 #### <a id="changepwd"></a> How can I change my CloudFoundry.com password?
 
@@ -340,7 +340,7 @@ One of the common causes for the sample demo applications (hello.rb) as shown in
 
 #### <a id="japanesestart"></a> Is there a Getting Started guide in Japanese?
 
-[Yes](/getting-started-japanese.html)
+[Yes](/docs/getting-started-japanese.html)
 
 #### <a id="updateapp"></a> How can I update my application without dropping user traffic?
 

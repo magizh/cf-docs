@@ -220,7 +220,7 @@ You can use additional options to change the default values of the deployment, a
 
 ```
 
-See [VMC Quick Reference Guide](/tools/vmc/vmc-quick-ref.html#deploying-applications) for the full list of parameters you can specify for the `vmc push` command.
+See [VMC Quick Reference Guide](/docs/tools/vmc/vmc-quick-ref.html#deploying-applications) for the full list of parameters you can specify for the `vmc push` command.
 
 ## Managing the Application Lifecycle (Stop, Start, Restart, Delete, Rename)
 

@@ -25,7 +25,7 @@ This application can publish messages to and get messages from a single RabbitMQ
 
 To start off, there are a few things that need to be installed on your development machine. This guide will assume that you already have the [JDK 6](http://www.oracle.com/technetwork/java/javase/downloads/) and [Maven](http://maven.apache.org/) installed.
 
-This tutorial will use the vmc command line tool used to interact with Cloud Foundry. If you don't already have vmc installed, please follow the instructions [here](/tools/vmc/vmc.html). Note that vmc continues to be enhanced, so even if you already have it installed, you should update it regularly by doing:
+This tutorial will use the vmc command line tool used to interact with Cloud Foundry. If you don't already have vmc installed, please follow the instructions [here](/docs/tools/vmc/vmc.html). Note that vmc continues to be enhanced, so even if you already have it installed, you should update it regularly by doing:
 
 ```bash
 $ gem update vmc
@@ -74,7 +74,7 @@ The Spring Application Context XML file, src/main/webapp/WEB-INF/spring/servlet-
        xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
                            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-    <context:component-scan base-package="com.rabbitmq.cftutorial.simple"/>
+    <context:component-scan base-package="com.rabbitmq.cftutorial.simple"/docs/>
     <mvc:annotation-driven/>
 </beans>
 ```
@@ -90,7 +90,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/docs/")
     public String home() {
         return "WEB-INF/views/home.jsp";
     }
@@ -225,11 +225,11 @@ We extend the JSP template at src/main/webapp/WEB-INF/views/home.jsp with the pa
 
     <h2>Publish a message</h2>
 
-    <form:form modelAttribute="message" action="/publish" method="post">
+    <form:form modelAttribute="message" action="/docs/publish" method="post">
       <form:label for="value" path="value">Message to publish:</form:label>
-      <form:input path="value" type="text"/>
+      <form:input path="value" type="text"/docs/>
 
-      <input type="submit" value="Publish"/>
+      <input type="submit" value="Publish"/docs/>
     </form:form>
 
     <c:if test="${published}">
@@ -238,8 +238,8 @@ We extend the JSP template at src/main/webapp/WEB-INF/views/home.jsp with the pa
 
     <h2>Get a message</h2>
 
-    <form:form action="/get" method="post">
-      <input type="submit" value="Get one"/>
+    <form:form action="/docs/get" method="post">
+      <input type="submit" value="Get one"/docs/>
     </form:form>
 
     <c:choose>
@@ -247,7 +247,7 @@ We extend the JSP template at src/main/webapp/WEB-INF/views/home.jsp with the pa
         <p>Queue empty</p>
       </c:when>
       <c:when test="${got != null}">
-        <p>Got message: <c:out value="${got}"/></p>
+        <p>Got message: <c:out value="${got}"/docs/></p>
       </c:when>
     </c:choose>
   </body>
@@ -266,18 +266,18 @@ import org.springframework.ui.Model;
 
 @Controller
 public class HomeController {
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/docs/")
     public String home(Model model) {
         model.addAttribute(new Message());
         return "WEB-INF/views/home.jsp";
     }
 
-    @RequestMapping(value = "/publish", method=RequestMethod.POST)
+    @RequestMapping(value = "/docs/publish", method=RequestMethod.POST)
     public String publish(Model model) {
         return home(model);
     }
 
-    @RequestMapping(value = "/get", method=RequestMethod.POST)
+    @RequestMapping(value = "/docs/get", method=RequestMethod.POST)
     public String get(Model model) {
         return home(model);
     }
@@ -417,21 +417,21 @@ Next we extend the Spring Application Context XML. The additions:
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
                            http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd
                            http://schema.cloudfoundry.org/spring http://schema.cloudfoundry.org/spring/cloudfoundry-spring-0.7.xsd">
-    <context:component-scan base-package="com.rabbitmq.cftutorial.simple"/>
+    <context:component-scan base-package="com.rabbitmq.cftutorial.simple"/docs/>
     <mvc:annotation-driven/>
 
     <!-- Obtain a connection to the RabbitMQ via cloudfoundry-runtime: -->
-    <cloud:rabbit-connection-factory id="connectionFactory"/>
+    <cloud:rabbit-connection-factory id="connectionFactory"/docs/>
 
     <!-- Set up the AmqpTemplate/RabbitTemplate: -->
-    <rabbit:template connection-factory="connectionFactory"/>
+    <rabbit:template connection-factory="connectionFactory"/docs/>
 
     <!-- Request that queues, exchanges and bindings be automatically
          declared on the broker: -->
-    <rabbit:admin connection-factory="connectionFactory"/>
+    <rabbit:admin connection-factory="connectionFactory"/docs/>
 
     <!-- Declare the "messages" queue: -->
-    <rabbit:queue name="messages" durable="true"/>
+    <rabbit:queue name="messages" durable="true"/docs/>
 </beans>
 ```
 
@@ -451,13 +451,13 @@ import org.springframework.amqp.core.AmqpTemplate;
 public class HomeController {
     @Autowired AmqpTemplate amqpTemplate;
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/docs/")
     public String home(Model model) {
         model.addAttribute(new Message());
         return "WEB-INF/views/home.jsp";
     }
 
-    @RequestMapping(value = "/publish", method=RequestMethod.POST)
+    @RequestMapping(value = "/docs/publish", method=RequestMethod.POST)
     public String publish(Model model, Message message) {
         // Send a message to the "messages" queue
         amqpTemplate.convertAndSend("messages", message.getValue());
@@ -465,7 +465,7 @@ public class HomeController {
         return home(model);
     }
 
-    @RequestMapping(value = "/get", method=RequestMethod.POST)
+    @RequestMapping(value = "/docs/get", method=RequestMethod.POST)
     public String get(Model model) {
         // Receive a message from the "messages" queue
         String message = (String)amqpTemplate.receiveAndConvert("messages");

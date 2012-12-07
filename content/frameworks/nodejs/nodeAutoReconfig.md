@@ -80,10 +80,10 @@ var generate_mongo_url = function(obj){
   obj.db = (obj.db || 'test');
 
   if(obj.username && obj.password){
-    return "mongodb://" + obj.username + ":" + obj.password + "@" + obj.hostname + ":" + obj.port + "/" + obj.db;
+    return "mongodb://" + obj.username + ":" + obj.password + "@" + obj.hostname + ":" + obj.port + "/docs/" + obj.db;
   }
   else{
-    return "mongodb://" + obj.hostname + ":" + obj.port + "/" + obj.db;
+    return "mongodb://" + obj.hostname + ":" + obj.port + "/docs/" + obj.db;
   }
 }
 
@@ -92,7 +92,7 @@ console.log(mongourl);
 
 http.createServer(function (req, res) {
   params = require('url').parse(req.url);
-  if(params.pathname === '/history') {
+  if(params.pathname === '/docs/history') {
     print_visits(req, res);
   }
   else{
@@ -155,7 +155,7 @@ var mongoUrl = 'mongodb://localhost:27017/test';
 
 http.createServer(function (req, res) {
   params = require('url').parse(req.url);
-  if(params.pathname === '/history') {
+  if(params.pathname === '/docs/history') {
     print_visits(req, res);
   }
   else{

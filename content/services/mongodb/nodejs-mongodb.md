@@ -8,13 +8,13 @@ tags:
 
 Before you begin, review these prerequisites:
 
-+	[Cloud Foundry account](http://cloudfoundry.com/signup) and [vmc](/tools/vmc/installing-vmc.html)
++	[Cloud Foundry account](http://cloudfoundry.com/signup) and [vmc](/docs/tools/vmc/installing-vmc.html)
 
 +	[Node.js](http://nodejs.org/) installed on your development machine
 
 +	[MongoDB](http://www.mongodb.org), the open source NoSQL database, installed on your development computer
 
-See [Node.js Application Development with Cloud Foundry](/frameworks/nodejs/nodejs.html) for a first tutorial on deploying Node.js applications.
+See [Node.js Application Development with Cloud Foundry](/docs/frameworks/nodejs/nodejs.html) for a first tutorial on deploying Node.js applications.
 
 ## Using the Cloud Foundry MongoDB Service
 
@@ -169,10 +169,10 @@ var generate_mongo_url = function(obj){
   obj.db = (obj.db || 'test');
 
   if(obj.username && obj.password){
-    return "mongodb://" + obj.username + ":" + obj.password + "@" + obj.hostname + ":" + obj.port + "/" + obj.db;
+    return "mongodb://" + obj.username + ":" + obj.password + "@" + obj.hostname + ":" + obj.port + "/docs/" + obj.db;
   }
   else{
-    return "mongodb://" + obj.hostname + ":" + obj.port + "/" + obj.db;
+    return "mongodb://" + obj.hostname + ":" + obj.port + "/docs/" + obj.db;
   }
 }
 
@@ -311,7 +311,7 @@ require('mongodb').connect(mongourl, function(err, conn){
 
 http.createServer(function (req, res) {
     params = require('url').parse(req.url);
-    if(params.pathname === '/history') {
+    if(params.pathname === '/docs/history') {
         print_visits(req, res);
     }
     else{
@@ -321,7 +321,7 @@ http.createServer(function (req, res) {
 ```
 
 Web server requests will either add the current visit to MongoDB (the default) or,
-if url includes "/history", output the last ten visits.
+if url includes "/docs/history", output the last ten visits.
 
 * Test the application locally:
 

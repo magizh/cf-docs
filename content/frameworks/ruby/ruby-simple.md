@@ -11,7 +11,7 @@ Follow these steps to create a simple Ruby application and deploy it to Cloud Fo
 Before you begin, be sure you have met these prerequisites:
 
 + 	[Installed Ruby and RubyGems](installing-ruby.html)
-+	[Installed VMC](/tools/vmc/installing-vmc.html)
++	[Installed VMC](/docs/tools/vmc/installing-vmc.html)
 +	[Registered for a Cloud Foundry account](https://my.cloudfoundry.com/signup)
 
 This example creates a short program using the Sinatra Ruby framework.
@@ -28,7 +28,7 @@ In the `hello` directory, create the file `hello.rb` with the following contents
 ```ruby
 require 'rubygems'
 require 'sinatra'
-get '/' do
+get '/docs/' do
   "Hello from Cloud Foundry"
 end
 

@@ -31,7 +31,7 @@ Once the plug-in is installed, you can use the following to see what Cloud Found
 $ grails cf-help
 ```
 
-Most of them are equivalents of the [vmc tool](/tools/vmc/vmc-quick-ref.html) commands.
+Most of them are equivalents of the [vmc tool](/docs/tools/vmc/vmc-quick-ref.html) commands.
 
 Next, you need to specify your username and password. The best place to put these is the ~/.grails/settings.groovy file:
 

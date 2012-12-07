@@ -7,4 +7,4 @@ tags:
 
 The following resource will help you get started using the Redis service on Cloud Foundry:
 
-+ [Ruby Application Development with the Redis Service](/services/redis/ruby-redis.html)
++ [Ruby Application Development with the Redis Service](/docs/services/redis/ruby-redis.html)

@@ -9,7 +9,7 @@ This tutorial takes you through the process of creating a simple Ruby applicatio
 
 * If needed, install Ruby and Ruby Gems on your computer.
 
-    See [Installing Ruby and RubyGems](/frameworks/ruby/installing-ruby.html).
+    See [Installing Ruby and RubyGems](/docs/frameworks/ruby/installing-ruby.html).
 
 * 	Install the vmc gem, using the following command:
 
@@ -49,7 +49,7 @@ $ mkdir my-first-app
 * Create a new file, `hello.rb`, with the following contents:
 
 		require 'sinatra'
-		get '/' do
+		get '/docs/' do
 			"Hello from Cloud Foundry"
 		end
 
@@ -82,10 +82,10 @@ $ vmc push
 
 # Next Steps
 
-+ [Read more about Cloud Foundry](/infrastructure/overview.html)
-+ [Install Micro Cloud Foundry on your local computer](/infrastructure/micro/installing-mcf.html)
-+ [Install the Cloud Foundry Extension in STS or Eclipse](/tools/STS/configuring-STS.html)
-+ [Configure your Spring applications to use Cloud Foundry services](/frameworks/java/spring/spring.html)
-+ [Configure your Ruby on Rails applications to use Cloud Foundry services](/frameworks/ruby/rails.html)
-+ [Deploy and manage applications with more complicated requirements](/tools/deploying-apps.html)
-+ [Read the VMC Quick Reference guide](/tools/vmc/vmc-quick-ref.html)
++ [Read more about Cloud Foundry](/docs/infrastructure/overview.html)
++ [Install Micro Cloud Foundry on your local computer](/docs/infrastructure/micro/installing-mcf.html)
++ [Install the Cloud Foundry Extension in STS or Eclipse](/docs/tools/STS/configuring-STS.html)
++ [Configure your Spring applications to use Cloud Foundry services](/docs/frameworks/java/spring/spring.html)
++ [Configure your Ruby on Rails applications to use Cloud Foundry services](/docs/frameworks/ruby/rails.html)
++ [Deploy and manage applications with more complicated requirements](/docs/tools/deploying-apps.html)
++ [Read the VMC Quick Reference guide](/docs/tools/vmc/vmc-quick-ref.html)

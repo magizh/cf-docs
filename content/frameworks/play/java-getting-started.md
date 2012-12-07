@@ -20,7 +20,7 @@ Before you get started, you need the following:
 
 +  A [Cloud Foundry account](http://cloudfoundry.com/signup)
 
-+  The [vmc](/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
++  The [vmc](/docs/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
 
 +  A [Play 2.0 ](http://www.playframework.org/documentation/2.0.2/Home) installation
 
@@ -52,7 +52,7 @@ $play help
 ```
 The Following screen should show up.
 
-![play-help.png](/images/screenshots/play/play-help.png)
+![play-help.png](/docs/images/screenshots/play/play-help.png)
 
 ### Create the App
 
@@ -122,7 +122,7 @@ Try running the app locally with the following command inside the play console:
 ```
 You should see the default Play template being served at `http://localhost:9000`.
 
-![default-play-home.png](/images/screenshots/play/default-play-home.png)
+![default-play-home.png](/docs/images/screenshots/play/default-play-home.png)
 
 ### Modify the Controller
 
@@ -146,7 +146,7 @@ public class Application extends Controller {
 ```
 The default view in the browser would look like this:
 
-![play-helloworld-java.png](/images/screenshots/play/play-helloworld-java.png)
+![play-helloworld-java.png](/docs/images/screenshots/play/play-helloworld-java.png)
 
 
 ### Deploy the App
@@ -202,10 +202,10 @@ Notice how vmc was able to detect a Play Application automatically.
 Access the application with your browser at the specified URL,
 [http://helloworld-java.cloudfoundry.com](http://helloworld-java.cloudfoundry.com) in this example.
 
-![play-helloworld-java-cf.png](/images/screenshots/play/play-helloworld-java-cf.png)
+![play-helloworld-java-cf.png](/docs/images/screenshots/play/play-helloworld-java-cf.png)
 
 
 ## Next Steps
 
-+    [Java App with MySQL](/frameworks/play/java-mysql.html)
-+    [Java App with PostgreSQL](/frameworks/play/java-postgresql.html)
++    [Java App with MySQL](/docs/frameworks/play/java-mysql.html)
++    [Java App with PostgreSQL](/docs/frameworks/play/java-postgresql.html)

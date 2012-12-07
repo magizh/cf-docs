@@ -10,7 +10,7 @@ tags:
 
 This section provides practical information for Spring developers who are using Cloud Foundry to deploy their applications.  In particular, the section describes Spring programming and packaging topics that are specific to the Cloud Foundry environment, and what you need to do to use the provided services, such as MySQL and RabbitMQ.
 
-(If you're interested in using Spring Insight to monitor your Java applications on Cloud Foundry, read [this](/frameworks/java/spring/spring-insight.html).)
+(If you're interested in using Spring Insight to monitor your Java applications on Cloud Foundry, read [this](/docs/frameworks/java/spring/spring-insight.html).)
 
 (If you are working Spring, Roo or Grails and would like to see some code samples, check out this useful link: [https://github.com/SpringSource/cloudfoundry-samples/wiki](https://github.com/SpringSource/cloudfoundry-samples/wiki) )
 
@@ -18,8 +18,8 @@ This section provides practical information for Spring developers who are using 
 
 It is assumed that you have already installed either VMC, SpringSource STS, or Eclipse and that you have used one of these tools to deploy a simple HelloWorld application to Cloud Foundry, either to your local Micro version or to the service hosted at cloudfoundry.com.  It is also assumed that you are already a proficient Spring application developer.  For additional information, see:
 
-+ [Installing the Command-Line Utility (VMC)](/tools/vmc/installing-vmc.html)
-+ [Installing the Cloud Foundry Integration Extension for SpringSource Tool Suite (STS) and Eclipse](/tools/STS/configuring-STS.html)
++ [Installing the Command-Line Utility (VMC)](/docs/tools/vmc/installing-vmc.html)
++ [Installing the Cloud Foundry Integration Extension for SpringSource Tool Suite (STS) and Eclipse](/docs/tools/STS/configuring-STS.html)
 + [Getting Started With Spring](http://www.springsource.org/get-started)
 
 ## Subtopics
@@ -145,7 +145,7 @@ Sometimes you may not want Cloud Foundry to auto-reconfigure your Spring applica
 
 ## Explicitly Configuring Your Application to Use Cloud Foundry Services
 
-This section describes the simple configuration steps you must perform in your Spring applications so they can use the Cloud Foundry services.  See [Configuring Applications to Use Cloud Foundry](/frameworks.html) for the complete list of supported Cloud Foundry services.
+This section describes the simple configuration steps you must perform in your Spring applications so they can use the Cloud Foundry services.  See [Configuring Applications to Use Cloud Foundry](/docs/frameworks.html) for the complete list of supported Cloud Foundry services.
 
 The easiest way to use Cloud Foundry services in your Spring applications is to declare the `<cloud:>` namespace, point it to the Cloud Foundry Schema, then use the service-specific elements defined in the `<cloud>` namespace.  For example, with just a single line of XML in your application context file you can create a JDBC data source or a RabbitMQ connection factory that you can use in your specific bean definitions.  You can configure multiple data sources or connection factories if your application requires it.   You can also further configure these cloud services if you want, although it is completely optional because Cloud Foundry uses common-place configuration values to create typical service instances that are adequate for most uses.  In sum, using the `<cloud:>` namespace provides you with as much control as you want over the number and type of Cloud Foundry services that your application uses.
 
@@ -242,7 +242,7 @@ For complete information about all the `<cloud:>` elements you can use in your S
 + [\<cloud:service-scan\> Injecting Services Into @Autowired Beans ](#cloudservice-scan)
 + [\<cloud:properties\> Get Cloud Foundry Service Information](#cloudproperties)
 
-* After you have finished specifying all the Cloud Foundry services you are going to use in your application, you use the standard Cloud Foundry client commands (VMC, SpringSource Tool Suite, or the Eclipse plugin) to create instances of these services, bind them to your applications, then deploy your applications to the hosted Cloud Foundry (cloudfoundry.com) or to your local Micro Cloud Foundry instance.  See [Deploying Applications](/tools/deploying-apps.html) for details on how to use these tools.
+* After you have finished specifying all the Cloud Foundry services you are going to use in your application, you use the standard Cloud Foundry client commands (VMC, SpringSource Tool Suite, or the Eclipse plugin) to create instances of these services, bind them to your applications, then deploy your applications to the hosted Cloud Foundry (cloudfoundry.com) or to your local Micro Cloud Foundry instance.  See [Deploying Applications](/docs/tools/deploying-apps.html) for details on how to use these tools.
 
 ## \<cloud:data-source\>
 
@@ -330,7 +330,7 @@ The following example shows a MongoDbFactory configuration that will be injected
 <cloud:mongo-db-factory id="mongoDbFactory" />
 
 <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-    <constructor-arg ref="mongoDbFactory"/>
+    <constructor-arg ref="mongoDbFactory"/docs/>
 </bean>
 ```
 
@@ -417,7 +417,7 @@ The following example shows a `RedisConnectionFactory` configuration that will b
     <cloud:redis-connection-factory id="redisConnectionFactory" />
 
     <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
-        <property name="connection-factory" ref="redisConnectionFactory"/>
+        <property name="connection-factory" ref="redisConnectionFactory"/docs/>
     </bean>
 ```
 
@@ -507,10 +507,10 @@ The following complete example of a Spring application contenxt file shows a `Ra
         connection-factory="rabbitConnectionFactory" />
 
     <!-- Request that queues, exchanges and bindings be automatically declared on the broker: -->
-    <rabbit:admin connection-factory="rabbitConnectionFactory"/>
+    <rabbit:admin connection-factory="rabbitConnectionFactory"/docs/>
 
     <!-- Declare the "messages" queue: -->
-    <rabbit:queue name="messages" durable="true"/>
+    <rabbit:queue name="messages" durable="true"/docs/>
 
     <!-- additional beans in your application -->
 
@@ -682,13 +682,13 @@ Then update your application controller/logic as follows:
    public class HomeController {
        @Autowired AmqpTemplate amqpTemplate;
 
-       @RequestMapping(value = "/")
+       @RequestMapping(value = "/docs/")
        public String home(Model model) {
            model.addAttribute(new Message());
            return "WEB-INF/views/home.jsp";
        }
 
-       @RequestMapping(value = "/publish", method=RequestMethod.POST)
+       @RequestMapping(value = "/docs/publish", method=RequestMethod.POST)
        public String publish(Model model, Message message) {
            // Send a message to the "messages" queue
            amqpTemplate.convertAndSend("messages", message.getValue());
@@ -696,7 +696,7 @@ Then update your application controller/logic as follows:
            return home(model);
        }
 
-       @RequestMapping(value = "/get", method=RequestMethod.POST)
+       @RequestMapping(value = "/docs/get", method=RequestMethod.POST)
        public String get(Model model) {
            // Receive a message from the "messages" queue
            String message = (String)amqpTemplate.receiveAndConvert("messages");

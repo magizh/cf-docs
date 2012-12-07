@@ -28,36 +28,36 @@ Before you begin this tutorial, you should be done with:
 ## Deploy Spring MVC App with PostgreSQL to Cloud Foundry using STS
 1. Go to the Servers view and right click to add a New Server. Now you can see Cloud Foundry under VMware. Select Cloud Foundry and then click next. It will ask for your account information, at which point you can choose **VMware Cloud Foundry - http://api.cloudfoundry.com** as the URL.
 
-    ![spring-expensereport-login.png](/images/spring_tutorial/cloud_foundry.png)
+    ![spring-expensereport-login.png](/docs/images/spring_tutorial/cloud_foundry.png)
 
 2. Once you have entered your Cloud Foundry account details, click **Validate Account** to make sure you have entered valid credentials.
 
-    ![cloud foundry account information.png](/images/spring_tutorial/cloud_foundry_account.png)
+    ![cloud foundry account information.png](/docs/images/spring_tutorial/cloud_foundry_account.png)
 
 3. Clicking **Next** will take you to **Add and Remove**. Now you can select your Spring application. Once you have added your application, it will open a new window with the application name and type. This is where you can enter your application's name.
 
-    ![spring-expensereport-login.png](/images/spring_tutorial/cloud_foundry_project_deploy.png)
+    ![spring-expensereport-login.png](/docs/images/spring_tutorial/cloud_foundry_project_deploy.png)
 
-    ![spring-expensereport-project-deploy.png](/images/spring_tutorial/project_deploy_step2.png)
+    ![spring-expensereport-project-deploy.png](/docs/images/spring_tutorial/project_deploy_step2.png)
 
 4. Click **Next** to see your deployed URL(your application name+cloudfoundry.com) and memory reservation. By default, memory reservation is 512M. You can increase memory if required.
 
-    ![spring-expensereport-project-deploy-step-2.png](/images/spring_tutorial/project_deploy_step3.png)
+    ![spring-expensereport-project-deploy-step-2.png](/docs/images/spring_tutorial/project_deploy_step3.png)
 
 5. Click **Next** to see your Services selection.  Since we are using PostgreSQL in our application, we need to add a PostgreSQL service.
 
-    ![service_selection.png](/images/spring_tutorial/service_selection.png)
+    ![service_selection.png](/docs/images/spring_tutorial/service_selection.png)
 
-    ![create_new_service.png](/images/spring_tutorial/create_new_service.png)
+    ![create_new_service.png](/docs/images/spring_tutorial/create_new_service.png)
 
 6. Now you can see your services in the services selection window. Select the PostgreSQL service and click finish. Now the server will start to deploy your application to Cloud Foundry.
-  ![spring-expensereport-login.png](/images/spring_tutorial/service_selection_1.png)
+  ![spring-expensereport-login.png](/docs/images/spring_tutorial/service_selection_1.png)
 
 ## Check Point
 1. Upon completion of deployment, we can go and visit the actual app at the URL `[app-name].cloudfoundry.com`.
-  ![deployed_application_in_cloud_foundry.png](/images/spring_tutorial/deployed_application_in_cloud_foundry.png)
+  ![deployed_application_in_cloud_foundry.png](/docs/images/spring_tutorial/deployed_application_in_cloud_foundry.png)
 
-* To get information about Tunneling to services on Cloud Foundry, please refer [here](/frameworks/java/spring/tutorials/springmvc-jpa-postgres/postgresql-dataservice-tunnel-on-cloudfoundry.html).
+* To get information about Tunneling to services on Cloud Foundry, please refer [here](/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/postgresql-dataservice-tunnel-on-cloudfoundry.html).
 
 ## Deploy Spring MVC App with PostgreSQL to Cloud Foundry using VMC
 Deployment to Cloud Foundry using VMC can be done in two simple steps:
@@ -140,7 +140,7 @@ Starting Application 'html5expense': OK
 
 ## Check Point
 1. Upon completion of deployment, we can go and visit the actual app at the URL `[app-name].cloudfoundry.com`.
-  ![deployed_application_in_cloud_foundry.png](/images/spring_tutorial/deployed_application_in_cloud_foundry.png)
+  ![deployed_application_in_cloud_foundry.png](/docs/images/spring_tutorial/deployed_application_in_cloud_foundry.png)
 
 
-* To get information about Tunneling to services on Cloud Foundry, please refer [here](/frameworks/java/spring/tutorials/springmvc-jpa-postgres/postgresql-dataservice-tunnel-on-cloudfoundry.html).
+* To get information about Tunneling to services on Cloud Foundry, please refer [here](/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/postgresql-dataservice-tunnel-on-cloudfoundry.html).

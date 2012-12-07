@@ -3,13 +3,13 @@ require "sinatra"
 require "newrelic_rpm"
 
 get "/" do
-  redirect("/getting-started.html")
+  redirect("/docs/getting-started.html")
 end
 
 get %r{/tags/([^.]+)$} do|tag|
-  redirect "/tags/#{tag}.html"
+  redirect "/docs/tags/#{tag}.html"
 end
 
-get "/tags" do
-  redirect "/tags/tags.html"
+get "/docs/tags" do
+  redirect "/docs/tags/tags.html"
 end

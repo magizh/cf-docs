@@ -7,7 +7,6 @@ target
 integration-repo
 ivy-cache
 tmp
-output/public
 output/log
 output/vendor
 output/newrelic.yml

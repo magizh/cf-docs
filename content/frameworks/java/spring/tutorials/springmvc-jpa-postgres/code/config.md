@@ -118,7 +118,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public InternalResourceViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
         internalResourceViewResolver.setViewClass(JstlView.class);
-        internalResourceViewResolver.setPrefix("/WEB-INF/views/");
+        internalResourceViewResolver.setPrefix("/docs/WEB-INF/views/");
         internalResourceViewResolver.setSuffix(".jsp");
         return internalResourceViewResolver;
     }
@@ -152,7 +152,7 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 @Configuration
 @Profile("local")
-@PropertySource("/db.properties")
+@PropertySource("/docs/db.properties")
 public class LocalDataSourceConfiguration implements DataSourceConfiguration {
 
     @Autowired

@@ -22,9 +22,9 @@ Before you begin this tutorial, you should:
 ### Setup: Exercise3-Starter
 Import the source code from the downloaded folder Exercise3-Starter as given. Open STS, Select **File > Import > Maven > Existing Maven Projects** and select Exercise3-Starter folder.
 
-  ![maven-import-step1](/images/spring_tutorial/import-maven-project-step1.png)
+  ![maven-import-step1](/docs/images/spring_tutorial/import-maven-project-step1.png)
 
-  ![maven-import-step2](/images/spring_tutorial/import-maven-project-step3.png)
+  ![maven-import-step2](/docs/images/spring_tutorial/import-maven-project-step3.png)
 
 ## Adding Spring Security to the ExpenseReport App
 This section will teach you how to integrate Spring Security into the ExpenseReport Application. These are the required dependencies to be added into pom.xml:
@@ -70,9 +70,9 @@ In web.xml, declare an instance of a DelegatingFilterProxy. This will filter the
 
 In spring-security.xml, define the Web/HTTP security configuration by adding an HTTP tag. Also define the URL pattern to be intercepted. Add the "jdbc-user service" tag and define the query to get the user and authorities data from the database.
 
-1.  To access the application, the user must be either `ROLE_USER` or `ROLE_MANAGER`. To validate this function, add `<intercept-url pattern="/" access="hasAnyRole('ROLE_USER','ROLE_MANAGER')"/>`.
+1.  To access the application, the user must be either `ROLE_USER` or `ROLE_MANAGER`. To validate this function, add `<intercept-url pattern="/docs/" access="hasAnyRole('ROLE_USER','ROLE_MANAGER')"/docs/>`.
 
-2.  Since only the manager is allowed to approve expenses, restrict access to him alone by adding `<intercept-url pattern="/expenses/approvals" access="hasRole('ROLE_MANAGER')"/>`.
+2.  Since only the manager is allowed to approve expenses, restrict access to him alone by adding `<intercept-url pattern="/docs/expenses/approvals" access="hasRole('ROLE_MANAGER')"/docs/>`.
 
 ```xml
 <beans:beans xmlns="http://www.springframework.org/schema/security"
@@ -84,19 +84,19 @@ In spring-security.xml, define the Web/HTTP security configuration by adding an 
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
     
     <http auto-config="true" use-expressions="true">
-        <intercept-url pattern="/login" filters="none" />
-        <intercept-url pattern="/logout" filters="none" />
-        <intercept-url pattern="/signup**" filters="none" />
-        <intercept-url pattern="/resources/**" filters="none" />
-        <intercept-url pattern="/favicon**" filters="none" />
-        <intercept-url pattern="/" access="hasAnyRole('ROLE_USER','ROLE_MANAGER')"/>
-        <intercept-url pattern="/expenses/approvals" access="hasRole('ROLE_MANAGER')" />
-        <intercept-url pattern="/expenses/**/state**" access="hasRole('ROLE_MANAGER')" />
-        <intercept-url pattern="/**" access="isAuthenticated()" />
-        <form-login login-page="/login" default-target-url="/"
-            authentication-failure-url="/loginfailed" />
-        <logout logout-success-url="/logout" />
-        <session-management invalid-session-url="/sessiontimeout" >
+        <intercept-url pattern="/docs/login" filters="none" />
+        <intercept-url pattern="/docs/logout" filters="none" />
+        <intercept-url pattern="/docs/signup**" filters="none" />
+        <intercept-url pattern="/docs/resources/**" filters="none" />
+        <intercept-url pattern="/docs/favicon**" filters="none" />
+        <intercept-url pattern="/docs/" access="hasAnyRole('ROLE_USER','ROLE_MANAGER')"/docs/>
+        <intercept-url pattern="/docs/expenses/approvals" access="hasRole('ROLE_MANAGER')" />
+        <intercept-url pattern="/docs/expenses/**/state**" access="hasRole('ROLE_MANAGER')" />
+        <intercept-url pattern="/docs/**" access="isAuthenticated()" />
+        <form-login login-page="/docs/login" default-target-url="/docs/"
+            authentication-failure-url="/docs/loginfailed" />
+        <logout logout-success-url="/docs/logout" />
+        <session-management invalid-session-url="/docs/sessiontimeout" >
             <concurrency-control max-sessions="1" />
         </session-management>
     </http>
@@ -114,17 +114,17 @@ In spring-security.xml, define the Web/HTTP security configuration by adding an 
 </beans:beans>
 ```
 
-To load this file as a part of configuration add **@ImportResource("/WEB-INF/spring-security.xml")** in ComponentConfig class.
+To load this file as a part of configuration add **@ImportResource("/docs/WEB-INF/spring-security.xml")** in ComponentConfig class.
 
 Create LoginController in the `com.springsource.html5expense.contoller` package and add mapping for login, logout, loginfailed, and signup. The login.jsp has two input elements for username and password (j_username and j_password). These are Spring's placeholder names for username and password, respectively.
 When the form is submitted, it will be sent to the following action URL: j_spring_security_check.
 
-Find the LoginController code [here](/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/logincontroller.html).
+Find the LoginController code [here](/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/logincontroller.html).
 
 ## Authentication Flow
 * Once you have added Spring security into the ExpenseReport App, it will ensure that the user has been authenticated and authorized to access the resource. The below figure shows how the user interacts with the application.
 
-    <img src="/images/spring_tutorial/Spring-security-flow.png" alt="sequence-flow" width="80%">
+    <img src="/docs/images/spring_tutorial/Spring-security-flow.png" alt="sequence-flow" width="80%">
 
 ## Check Point
 1. Select project, drag it down and drop into your VMware vFabric tc server listed in the bottom left Server window.
@@ -133,12 +133,12 @@ Find the LoginController code [here](/frameworks/java/spring/tutorials/springmvc
 
 3. Once the Server starts, open your browser and enter application URL : `http://localhost:8080/html5expense/expenses`. This time you will be automatically redirected to the login page.
 
-    ![STS Fabric Server.png](/images/spring_tutorial/localhost_login.png)
+    ![STS Fabric Server.png](/docs/images/spring_tutorial/localhost_login.png)
 
 ## Complete Application Code
 If you are getting any errors, download the Exercise3-Complete code and import into STS.
 
 ## Deploying to Cloud Foundry
-* To learn more about deploying Spring App with PostgreSQL to Cloud Foundry, please refer [here](/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-app-with-postgresql-deployment-to-cloudfoundry.html).
+* To learn more about deploying Spring App with PostgreSQL to Cloud Foundry, please refer [here](/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-app-with-postgresql-deployment-to-cloudfoundry.html).
  
-<a class="button-plain" style="padding: 3px 15px;" href="/frameworks/java/spring/tutorials/springmvc-jpa-postgres/spring-expensereport-app-tutorial.html">Prev</a>
+<a class="button-plain" style="padding: 3px 15px;" href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/spring-expensereport-app-tutorial.html">Prev</a>

@@ -20,7 +20,7 @@ Before you get started, you need the following:
 
 +  A [Cloud Foundry account](http://cloudfoundry.com/signup)
 
-+  The [vmc](/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
++  The [vmc](/docs/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
 
 +  A [Play 2.0 ](http://www.playframework.org/documentation/2.0.2/Home) installation
 
@@ -52,7 +52,7 @@ $play help
 ```
 The Following screen should show up.
 
-![play-help.png](/images/screenshots/play/play-help.png)
+![play-help.png](/docs/images/screenshots/play/play-help.png)
 
 ### Create the App
 
@@ -122,7 +122,7 @@ Try running the app locally with the following command inside the play console:
 ```
 You should see the default Play template being served at `http://localhost:9000`.
 
-![default-play-home.png](/images/screenshots/play/default-play-home.png)
+![default-play-home.png](/docs/images/screenshots/play/default-play-home.png)
 
 ### Modify the Controller
 
@@ -145,7 +145,7 @@ object Application extends Controller {
 ```
 The default view in the browser would look like this:
 
-![play-helloworld-scala.png](/images/screenshots/play/play-helloworld-scala.png)
+![play-helloworld-scala.png](/docs/images/screenshots/play/play-helloworld-scala.png)
 
 
 ### Deploy the App
@@ -195,7 +195,7 @@ $ vmc push --path=./dist/helloworld-1.0-SNAPSHOT.zip
 Access the application with your browser at the specified URL,
  [http://helloworld-scala.cloudfoundry.com](http://hello-scala.cloudfoundry.com) in this example.
 
-![play-helloworld-scala-cf.png](/images/screenshots/play/play-helloworld-scala-cf.png)
+![play-helloworld-scala-cf.png](/docs/images/screenshots/play/play-helloworld-scala-cf.png)
 
 
 

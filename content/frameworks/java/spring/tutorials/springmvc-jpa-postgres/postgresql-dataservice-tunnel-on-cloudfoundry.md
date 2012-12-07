@@ -13,7 +13,7 @@ This section will teach you how to access the PostgreSQL service on Cloud Foundr
 ## Prerequisites
 Before you begin this tutorial, you should:
 
-1. Have installed [Caldecott](/tools/vmc/caldecott.html).
+1. Have installed [Caldecott](/docs/tools/vmc/caldecott.html).
 2. Have installed [STS](http://www.springsource.org/spring-tool-suite-download) or Eclipse.
 3. Have installed [PostgreSQL](http://www.postgresql.org/download/).
 
@@ -105,32 +105,32 @@ da5857027ab844d7d9f474ceaf196c9d0=> \dt
 
 1. Go to servers, right click to add New Server. Now you can see Cloud Foundry under VMware. Select Cloud Foundry, then click next.
 
-    ![spring-expensereport-login.png](/images/spring_tutorial/cloud_foundry.png)
+    ![spring-expensereport-login.png](/docs/images/spring_tutorial/cloud_foundry.png)
 
 2. Now enter your Cloud Foundry account information,  choose **VMware Cloud Foundry - https://api.cloudfoundry.com** for the URL, and click **Validate Account** to ensure your credentials are vaild. Once you got response that your account information is valid then click **Finish**.
 
-    ![cloud foundry account information.png](/images/spring_tutorial/cloud_foundry_account.png)
+    ![cloud foundry account information.png](/docs/images/spring_tutorial/cloud_foundry_account.png)
 
 3. Once the VMware Cloud Foundry server has started, double click it. It will open a new window. Click on the `Applications` tab to see the Services you have created for application.
 
 4. Right click the postgresql service and select **Open Tunnel**.
 
-    ![open-caldecott](/images/spring_tutorial/open_tunnel.png)
+    ![open-caldecott](/docs/images/spring_tutorial/open_tunnel.png)
 
 5. Once complete, STS will give the connection information. Right click to copy all of the details.
 
-    ![open-caldecott](/images/spring_tutorial/caldecott_info.png)
+    ![open-caldecott](/docs/images/spring_tutorial/caldecott_info.png)
 
 6. Open the Database development perspective (**Window > Open Perspective**) and add a New connection (right click on Database Connections). Select the PostgreSQL connection profile and click **Next**. You should see the window shown in below. Enter the Cloud Foundry service connection information. Click test connection to ensure you have entered correct details.
 
-    ![spring-expensereport-login.png](/images/spring_tutorial/open_service_in_local.png)
+    ![spring-expensereport-login.png](/docs/images/spring_tutorial/open_service_in_local.png)
 
-    ![spring-expensereport-login.png](/images/spring_tutorial/enter_cloud_foundry_service_auth_details.png)
+    ![spring-expensereport-login.png](/docs/images/spring_tutorial/enter_cloud_foundry_service_auth_details.png)
 
 7. Once ping succeeds, click **Next** and it will create a new connection. Right click the Cloud Foundry service connection and select open Sql Scrapbook. It will open a new Sql Scrpbook. Now select your Cloud Foundry service connection.
 
-    ![open-caldecott](/images/spring_tutorial/ping_succeed.png)
+    ![open-caldecott](/docs/images/spring_tutorial/ping_succeed.png)
 
-    ![open-caldecott](/images/spring_tutorial/sql-scrapbook.png)
+    ![open-caldecott](/docs/images/spring_tutorial/sql-scrapbook.png)
 
 8. Now you can run queries on the services you have created in Cloud Foundry.

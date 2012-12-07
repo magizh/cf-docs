@@ -68,7 +68,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
     # Provide a default URL as a default if there hasn't been a file uploaded:
     def default_url
-        "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+        "/docs/images/fallback/" + [version_name, "default.png"].compact.join('_')
     end
 end
 ```
@@ -142,7 +142,7 @@ CarrierWave.configure do |config|
   config.grid_fs_connection = Mongoid.database
 
   # Storage access url
-  config.grid_fs_access_url = "/grid"
+  config.grid_fs_access_url = "/docs/grid"
 end
 ```
 

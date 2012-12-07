@@ -9,13 +9,13 @@ The following resources will help you get started using the MongoDB service on C
 
 ## Grails
 
-+ [Grails Development with the MongoDB Service](/services/mongodb/grails-mongodb.html)
++ [Grails Development with the MongoDB Service](/docs/services/mongodb/grails-mongodb.html)
 
 ## Node.js
 
-+ [Using MongoDB with Node.js](/services/mongodb/nodejs-mongodb.html)
++ [Using MongoDB with Node.js](/docs/services/mongodb/nodejs-mongodb.html)
 
 ## Ruby
 
-+ [Working with Ruby and MongoDB](/services/mongodb/ruby-mongodb.html)
-+ [Working with Ruby, MongoDB and GridFS](/services/mongodb/ruby-mongodb-gridfs.html)
++ [Working with Ruby and MongoDB](/docs/services/mongodb/ruby-mongodb.html)
++ [Working with Ruby, MongoDB and GridFS](/docs/services/mongodb/ruby-mongodb-gridfs.html)

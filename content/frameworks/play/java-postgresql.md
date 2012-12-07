@@ -18,7 +18,7 @@ Before you get started, you need the following:
 
 +  A [Cloud Foundry account](http://cloudfoundry.com/signup)
 
-+  The [vmc](/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
++  The [vmc](/docs/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
 
 +  A [Play 2.0 ](http://www.playframework.org/documentation/2.0.2/Home) installation
 
@@ -33,7 +33,7 @@ persistent layer wired to a PostgreSQL database.
 
 TodoList is used to create and manage tasks.
 
-![todolist-usecase.png](/images/play/todolist-usecase.png)
+![todolist-usecase.png](/docs/images/play/todolist-usecase.png)
 
 These tasks are created by the users and the data
 is stored in underlying relational store.
@@ -51,11 +51,11 @@ $play run
 The following screen appears the first time as the evolution script needs to be applied and
 tables created:
 
-![play-local-java-mysql-applyscript.png](/images/screenshots/play/play-local-java-mysql-applyscript.png)
+![play-local-java-mysql-applyscript.png](/docs/images/screenshots/play/play-local-java-mysql-applyscript.png)
 
 Once the user clicks the ApplyScript button, the actual app home shows up.
 
-![play-local-java-mysql.png](/images/screenshots/play/play-local-java-mysql.png)
+![play-local-java-mysql.png](/docs/images/screenshots/play/play-local-java-mysql.png)
 
 
 ### Modifying the Evolutions file for PostgreSQL
@@ -114,7 +114,7 @@ Starting Application 'todolist-java-mysql': OK
 
 Upon completion of deployment, we can go and visit the actual app at the URL `[app-name].cloudfoundry.com]`
 
-![play-cf-java-mysql.png](/images/screenshots/play/play-cf-java-mysql.png)
+![play-cf-java-mysql.png](/docs/images/screenshots/play/play-cf-java-mysql.png)
 
 ## Summary
 In this tutorial, we learned how to build and deploy a basic Play Java app using PostgreSQL as the backend.

@@ -9,10 +9,10 @@ The following resources will help you get started using the RabbitMQ service on 
 
 ## Docs
 
-+ [Using RabbitMQ with Spring and Java](/services/rabbitmq/spring-rabbitmq.html)
-+ [Ruby Development with the RabbitMQ Service](/services/rabbitmq/ruby-rabbitmq.html)
-+ [Using RabbitMQ with Node.js](/services/rabbitmq/nodejs-rabbitmq.html)
-+ [FAQ](/services/rabbitmq/faq-rabbitmq.html)
++ [Using RabbitMQ with Spring and Java](/docs/services/rabbitmq/spring-rabbitmq.html)
++ [Ruby Development with the RabbitMQ Service](/docs/services/rabbitmq/ruby-rabbitmq.html)
++ [Using RabbitMQ with Node.js](/docs/services/rabbitmq/nodejs-rabbitmq.html)
++ [FAQ](/docs/services/rabbitmq/faq-rabbitmq.html)
 
 
 ## Sample Applications

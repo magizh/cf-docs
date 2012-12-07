@@ -22,9 +22,9 @@ Before you begin this tutorial, you should:
 ### Setup: Exercise2-Starter
 Import the source code from the downloaded folder Exercise2-Starter as follows. Open STS, Select **File > Import > Maven > Existing Maven Projects** and select Exercise2-Starter folder.
 
-  ![maven-import-step1](/images/spring_tutorial/import-maven-project-step1.png)
+  ![maven-import-step1](/docs/images/spring_tutorial/import-maven-project-step1.png)
 
-  ![maven-import-step2](/images/spring_tutorial/import-maven-project-step2.png)
+  ![maven-import-step2](/docs/images/spring_tutorial/import-maven-project-step2.png)
 
 In the Expense Reporting App, there are two roles:
 
@@ -34,9 +34,9 @@ In the Expense Reporting App, there are two roles:
 
 Once a Normal User submits an expense, it goes to the Manager's work items. The Manager can then Approve or Reject the expense.
 
-<img src="/images/spring_tutorial/normal-user-usecase.png" alt="normal-user-usecase.png" width="30%">
+<img src="/docs/images/spring_tutorial/normal-user-usecase.png" alt="normal-user-usecase.png" width="30%">
 
-<img src="/images/spring_tutorial/manager-user-use-case.png" alt="manager-user-usecase_admin.png" width="30%">
+<img src="/docs/images/spring_tutorial/manager-user-use-case.png" alt="manager-user-usecase_admin.png" width="30%">
 
 These expenses are created by the users and the data
 is stored in PostgreSQL.
@@ -44,7 +44,7 @@ is stored in PostgreSQL.
 ## Application Flow:
 The below figure shows the runtime interaction of the application.
 
-<img src="/images/spring_tutorial/sequence-flow.png" alt="sequence-flow" width="50%">
+<img src="/docs/images/spring_tutorial/sequence-flow.png" alt="sequence-flow" width="50%">
 
 
 1.  User logs into the Expense Reporting system.
@@ -90,7 +90,7 @@ public class Expense {
 
 The `@Id` annotation specifies the primary key of the entity and the `@GeneratedValue` annotation tells JPA that the value in that field should map to the primary key and that the primary key should use an auto-incrementing value strategy. The `@OneToOne` annotation defines a single-valued association to another entity that has one-to-one multiplicity.
 
-You can get the Entity classes [here](/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/entities.html).
+You can get the Entity classes [here](/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/entities.html).
 
 ## **Step 2:** Adding Services
 `@Service` specifies a special component that provides the business services through interface. This annotation serves as a specialization of `@Component`, allowing for implementation classes to be autodetected through classpath scanning.
@@ -126,7 +126,7 @@ These are the business methods to:
 + Update an expense's status.
 
 * Create a package for service interfaces as `com.springsource.html5expense.services` and add `ExpenseService`, `ExpenseTypeService`, `UserService` and `RoleService` interfaces which define the business methods.
-You can get the service interfaces [here](/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/services.html).
+You can get the service interfaces [here](/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/services.html).
 
 * Add the following service implementation classes `JpaExpenseService`, `JpaExpenseTypeService`,
 `JpaRoleService` and `JpaUserService` in the `com.springsource.html5expense.services` package. The EntityManager has been autowired. The `@Autowired` annotation is auto wired to the bean by matching data type. It is associated with a persistence context. A persistence context is a set of entity instances in which for any persistent entity identity there is a unique entity instance. Within the persistence context, the entity instances and their lifecycle are managed. The EntityManager API is used to create and remove persistent entity instances, to find entities by their primary key, and to query over entities. @PersistenceContext uses the EntityManagerFactory to create an EntityManager instance. We have marked the createExpense method with @Transactional annotation which will ensure the method is running in transaction.
@@ -160,7 +160,7 @@ public class JpaExpenseService implements ExpenseService {
     }
 }
 ```
-You can get the service implementation classes [here](/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/services-implementation.html).
+You can get the service implementation classes [here](/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/services-implementation.html).
 
 Once you have added service implementation classes, ensure you aren't getting errors.
 
@@ -213,7 +213,7 @@ The Controller is responsible for mapping requests. The `@RequestMapping` annota
 Create a package for Controllers as `com.springsource.html5expense.controllers` and add the following class: `ExpenseController`. The below method is used in ExpenseController to create a new expense. The `@ResponseBody` annotation indicates that this method return value should be bound to the web response body. We have added Jackson JSON marshaling library dependency in our project. Spring MVC detects this at startup and registers a `MappingJacksonHttpMessageConverter`, which will convert any java.lang.Objects to Strings.
 ```java
 @ResponseBody
-@RequestMapping(value = "/expenses", method = RequestMethod.POST)
+@RequestMapping(value = "/docs/expenses", method = RequestMethod.POST)
 @ResponseStatus(value = HttpStatus.CREATED)
 public Long createNewExpense(@RequestParam("description")String description
     , @RequestParam("amount")Double amount, @RequestParam("expenseTypeId")Long expenseTypeVal) {
@@ -227,7 +227,7 @@ public Long createNewExpense(@RequestParam("description")String description
 In the method below, we have used `ModelMap`. It is a place where you can store key/value pairs to be used by the view in rendering a response.  It is through this context that you request specific information in the response.
 
 ```java
-@RequestMapping(value = "/", method = RequestMethod.GET)
+@RequestMapping(value = "/docs/", method = RequestMethod.GET)
 public String getExpenses(ModelMap model) {
      List<ExpenseType> expenseTypeList = expenseTypeService.getAllExpenseType();
      model.addAttribute("expenseTypeList", expenseTypeList);
@@ -251,7 +251,7 @@ public String getExpenses(ModelMap model) {
 </filter-mapping>
 ```
 
- You can get the controller class code [here](/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/controllers.html).
+ You can get the controller class code [here](/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/controllers.html).
 
 
 ## **Step 4:** Configuring the ExpenseReport application
@@ -260,7 +260,7 @@ In order to work with data from a PostgreSQL database, we need to obtain a conne
 ```java
 @Configuration
 @Profile("local")
-@PropertySource("/db.properties")
+@PropertySource("/docs/db.properties")
 public class LocalDataSourceConfiguration implements DataSourceConfiguration {
 
     @Autowired
@@ -435,7 +435,7 @@ com.springsource.html5expense.config. Then set `contextInitializerClasses` as Ex
  </context-param>
 ```
 
-You can get the Config classes [here](/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/config.html).
+You can get the Config classes [here](/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/config.html).
 
 ## **Step 5:** Adding View Files
 The ExpenseReport app service is ready. To get users to interact with it, it needs a user interface. To resolve the Controller's return `view` value, we have defined InternalViewResolver.
@@ -445,13 +445,13 @@ The ExpenseReport app service is ready. To get users to interact with it, it nee
 public InternalResourceViewResolver internalResourceViewResolver() {
      InternalResourceViewResolver internalResourceViewResolver =
                            new InternalResourceViewResolver();
-     internalResourceViewResolver.setPrefix("/WEB-INF/views/");
+     internalResourceViewResolver.setPrefix("/docs/WEB-INF/views/");
      internalResourceViewResolver.setSuffix(".jsp");
      return internalResourceViewResolver;
 }
 ```
 
-The application requires the following files to be added: `login.jsp`, `expensereports.jsp`, and `signup.jsp` (in the `webapp/WEB-INF/view` folder). You can download the jsp files [here](/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/views.html).
+The application requires the following files to be added: `login.jsp`, `expensereports.jsp`, and `signup.jsp` (in the `webapp/WEB-INF/view` folder). You can download the jsp files [here](/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/code/views.html).
 
 ## Check Point
 1. Select your project, drag it down and drop into your VMware vFabric tc server listed in the bottom left Server window.
@@ -478,7 +478,7 @@ postgres=# \dt
 If you are getting any errors, download the Exercise2-Complete code and import into STS.
 
 ## Deploying to Cloud Foundry
-* To learn how to deploy a Spring App using PostgreSQL to Cloud Foundry, please refer [here](/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-app-with-postgresql-deployment-to-cloudfoundry.html).
+* To learn how to deploy a Spring App using PostgreSQL to Cloud Foundry, please refer [here](/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-app-with-postgresql-deployment-to-cloudfoundry.html).
 
-<a class="button-plain" style="padding: 3px 15px;" href="/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-template-project.html">Prev</a><a class="button-plain" style="padding: 3px 15px; float: right" href="/frameworks/java/spring/tutorials/springmvc-jpa-postgres/expensereport-app-with-spring-security.html">Next</a>
+<a class="button-plain" style="padding: 3px 15px;" href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-template-project.html">Prev</a><a class="button-plain" style="padding: 3px 15px; float: right" href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/expensereport-app-with-spring-security.html">Next</a>
 

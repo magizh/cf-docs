@@ -13,7 +13,7 @@ Before you get started, you'll need the following:
 
 +  A [Cloud Foundry account](http://cloudfoundry.com/signup)
 
-+  The [vmc](/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
++  The [vmc](/docs/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
 
 +  A [Spring Tool Suite™ (STS)](http://www.springsource.org/spring-tool-suite-download) installation
 
@@ -35,23 +35,23 @@ The Spring Framework provides a comprehensive programming and configuration mode
     <tbody>
             <tr>
                 <td>1</td>
-                <td><a href='/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-template-project.html'>Create a Spring MVC Hello World Application</a></td>
+                <td><a href='/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-template-project.html'>Create a Spring MVC Hello World Application</a></td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>2</td>
-                <td><a href='/frameworks/java/spring/tutorials/springmvc-jpa-postgres/spring-expensereport-app-tutorial.html'>Create a Spring MVC Application with JPA using PostgreSQL</a></td>
-                <td><a href='/code/tutorials/springmvc-jpa-postgres/Exercise2-Starter.zip'>Exercise2-Starter.zip</a></td>
-                <td><a href='/code/tutorials/springmvc-jpa-postgres/Exercise2-Complete.zip'>Exercise2-Complete.zip</a></td>
+                <td><a href='/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/spring-expensereport-app-tutorial.html'>Create a Spring MVC Application with JPA using PostgreSQL</a></td>
+                <td><a href='/docs/code/tutorials/springmvc-jpa-postgres/Exercise2-Starter.zip'>Exercise2-Starter.zip</a></td>
+                <td><a href='/docs/code/tutorials/springmvc-jpa-postgres/Exercise2-Complete.zip'>Exercise2-Complete.zip</a></td>
             </tr>
             <tr>
                 <td>3</td>
-                <td><a href='/frameworks/java/spring/tutorials/springmvc-jpa-postgres/expensereport-app-with-spring-security.html'>Add Spring Security to Spring MVC Application</a></td>
-                <td><a href='/code/tutorials/springmvc-jpa-postgres/Exercise3-Starter.zip'>Exercise3-Starter.zip</a></td>
-                <td><a href='/code/tutorials/springmvc-jpa-postgres/Exercise3-Complete.zip'>Exercise3-Complete.zip</a></td>
+                <td><a href='/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/expensereport-app-with-spring-security.html'>Add Spring Security to Spring MVC Application</a></td>
+                <td><a href='/docs/code/tutorials/springmvc-jpa-postgres/Exercise3-Starter.zip'>Exercise3-Starter.zip</a></td>
+                <td><a href='/docs/code/tutorials/springmvc-jpa-postgres/Exercise3-Complete.zip'>Exercise3-Complete.zip</a></td>
             </tr>
     </tbody>
 </table>
 
-<a class="button-plain" style="padding: 3px 15px; float: right" href="/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-template-project.html">Next</a>
+<a class="button-plain" style="padding: 3px 15px; float: right" href="/docs/frameworks/java/spring/tutorials/springmvc-jpa-postgres/springmvc-template-project.html">Next</a>

@@ -13,7 +13,7 @@ RabbitMQ is a message broker that provides robust messaging services for your ap
 
 This is a guide for Node.js developers who are using the Cloud Foundry RabbitMQ service. It shows you how to access the Cloud Foundry RabbitMQ services in your applications.
 
-See [Node.js Application Development with Cloud Foundry](/frameworks/nodejs/nodejs.html) for a first tutorial on deploying Node.js applications.
+See [Node.js Application Development with Cloud Foundry](/docs/frameworks/nodejs/nodejs.html) for a first tutorial on deploying Node.js applications.
 
 ### Setup
 
@@ -112,24 +112,24 @@ function setup() {
 function httpServer(exchange) {
   var serv = http.createServer(function(req, res) {
     var url = URL.parse(req.url);
-    if (req.method == 'GET' && url.pathname == '/env') {
+    if (req.method == 'GET' && url.pathname == '/docs/env') {
       printEnv(res);
     }
-    else if (req.method == 'GET' && url.pathname == '/') {
+    else if (req.method == 'GET' && url.pathname == '/docs/') {
       res.statusCode = 200;
       openHtml(res);
       writeForm(res);
       writeMessages(res);
       closeHtml(res);
     }
-    else if (req.method == 'POST' && url.pathname == '/') {
+    else if (req.method == 'POST' && url.pathname == '/docs/') {
       chunks = '';
       req.on('data', function(chunk) { chunks += chunk; });
       req.on('end', function() {
         msg = unescapeFormData(chunks.split('=')[1]);
         exchange.publish('', {body: msg});
         res.statusCode = 303;
-        res.setHeader('Location', '/');
+        res.setHeader('Location', '/docs/');
         res.end();
       });
     }
@@ -166,7 +166,7 @@ function writeMessages(res) {
 
 function writeForm(res) {
   res.write('<form method="post">');
-  res.write('<input name="data"/><input type="submit"/>');
+  res.write('<input name="data"/docs/><input type="submit"/docs/>');
   res.write('</form>');
 }
 
@@ -220,4 +220,4 @@ $ vmc push
 
 Access the application at the specified URL using your browser. Enter messages in the form and see them echoed in the browser.
 
-![RabbitMQ with Node.js application](/images/screenshots/nodejs-rabbitmq/rmq-app.png)
+![RabbitMQ with Node.js application](/docs/images/screenshots/nodejs-rabbitmq/rmq-app.png)

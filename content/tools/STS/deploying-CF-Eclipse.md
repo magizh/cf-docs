@@ -29,18 +29,18 @@ Follow these steps to define the new Server.
 
 *  Either click new server wizard or right-click on an empty area in the Servers view and choose **New > Server**.
 
-    ![STS New Server](/images/screenshots/configuring-STS/cf_eclipse_empty_servers_view.png)
+    ![STS New Server](/docs/images/screenshots/configuring-STS/cf_eclipse_empty_servers_view.png)
 
     The **Define a New Server** wizard starts.
 
 *  Expand the VMware folder, select Cloud Foundry.
 
-    ![STS New Server Wizard](/images/screenshots/configuring-STS/cf_eclipse_new_cf_server.png)
+    ![STS New Server Wizard](/docs/images/screenshots/configuring-STS/cf_eclipse_new_cf_server.png)
 
 *  Specify a display name for the Cloud Foundry server instance that should be created in Server name. Server host name should
    remain localhost. Click **Next**.
 
-   ![STS New Server Wizard Account](/images/screenshots/configuring-STS/cf_eclipse_new_server_account.png)
+   ![STS New Server Wizard Account](/docs/images/screenshots/configuring-STS/cf_eclipse_new_server_account.png)
 
 *  Select the Cloud Foundry target you want to set up from the URL list.
 
@@ -53,7 +53,7 @@ Follow these steps to define the new Server.
 *  If you selected **Microcloud**, enter the domain name you registered for
    your Micro Cloud Foundry at http://cloudfoundry.com/micro and a descriptive name.
 
-    ![Create Microcloud Target](/images/screenshots/configuring-STS/sts-mcf-domain-name.png)
+    ![Create Microcloud Target](/docs/images/screenshots/configuring-STS/sts-mcf-domain-name.png)
 
 *  Click **OK**.
 
@@ -93,13 +93,13 @@ services, such as a MySQL or vFabric Postgres database, or RabbitMQ messaging.
 *  In STS or Eclipse, select **Windows > Show View > Servers** to display the
     Servers view.
 
-    ![Show Servers](/images/screenshots/configuring-STS/cf_eclipse_servers_view_cf_server.png)
+    ![Show Servers](/docs/images/screenshots/configuring-STS/cf_eclipse_servers_view_cf_server.png)
 
     Currently deployed applications, if any, are listed beneath the servers.
 
 *  To deploy an application, drag it to the target Cloud Foundry Server in the Servers view.
 
-    ![Drag and Drop App](/images/screenshots/configuring-STS/cf_eclipse_drag_drop_app.png)
+    ![Drag and Drop App](/docs/images/screenshots/configuring-STS/cf_eclipse_drag_drop_app.png)
 
     Alternatively, you can double click on the server and the Cloud Foundry editor will open, allowing users to drag and drop
     applications into the Applications tab.
@@ -108,7 +108,7 @@ services, such as a MySQL or vFabric Postgres database, or RabbitMQ messaging.
     deployable to the selected Cloud Foundry server. If so, it opens an Application details wizard, where the application can be
     configured and optional services bound. Supported application types include **Spring**, **Grails**, **Lift**, and **Java Web**.
 
-    ![Application details](/images/screenshots/configuring-STS/cf_eclipse_application_details.png)
+    ![Application details](/docs/images/screenshots/configuring-STS/cf_eclipse_application_details.png)
 
 *  Change the name of the application, if desired, and select the correct
     Application Type if the integration extension incorrectly identified the
@@ -119,7 +119,7 @@ services, such as a MySQL or vFabric Postgres database, or RabbitMQ messaging.
     application for administration. The name exposed to users in the
     application's URL is set on the next page of the wizard.
 
-    ![Launch deployment](/images/screenshots/configuring-STS/cf_eclipse_application_details_regular_start.png)
+    ![Launch deployment](/docs/images/screenshots/configuring-STS/cf_eclipse_application_details_regular_start.png)
 
 *  Edit the Deployed URL and change the Memory Reservation if needed.
 
@@ -134,16 +134,16 @@ services, such as a MySQL or vFabric Postgres database, or RabbitMQ messaging.
     URL. If deploying to a microcloud or local cloud with debugging support, an additional option for starting the application in
     **Debug** mode is displayed.
 
-    ![Launch deployment debug](/images/screenshots/configuring-STS/cf_eclipse_application_details_debug_start.png)
+    ![Launch deployment debug](/docs/images/screenshots/configuring-STS/cf_eclipse_application_details_debug_start.png)
 
 *  If clicking **Next**, existing services can be bound to the application, or additional services can be defined and then bound.
 
-    ![Bind services on deployment](/images/screenshots/configuring-STS/cf_eclipse_application_deployment_services.png)
+    ![Bind services on deployment](/docs/images/screenshots/configuring-STS/cf_eclipse_application_deployment_services.png)
 
 *  Once deployed, in the Servers view, double-click the application to open the editor and display the application stats as well as
    controls to start, stop, restart, update and restart the application, and also change the application's configuration and bound services.
 
-    ![Applications Control Panel](/images/screenshots/configuring-STS/cf_eclipse_cf_editor.png)
+    ![Applications Control Panel](/docs/images/screenshots/configuring-STS/cf_eclipse_cf_editor.png)
 
 ## Define Application Services
 
@@ -157,18 +157,18 @@ Follow these steps to define a service from the editor.
 
 *  In the Servers view, double-click the application name.
 
-    ![STS Applications Tab](/images/screenshots/configuring-STS/cf_eclipse_cf_editor.png)
+    ![STS Applications Tab](/docs/images/screenshots/configuring-STS/cf_eclipse_cf_editor.png)
 
     The Applications tab shows details about the applications on the Cloud
     Foundry target.
 
 *  In the Services section, click the **Add service** icon.
 
-    ![STS Add Service](/images/screenshots/configuring-STS/cf_eclipse_editor_services_table.png)
+    ![STS Add Service](/docs/images/screenshots/configuring-STS/cf_eclipse_editor_services_table.png)
 
 *  Provide a name for the new service and select the type of service.
 
-    ![STS Service Configuration](/images/screenshots/configuring-STS/sts-service-configuration.png)
+    ![STS Service Configuration](/docs/images/screenshots/configuring-STS/sts-service-configuration.png)
 
     The **Type** list contains all of the service types available on the
     target Cloud Foundry.
@@ -195,7 +195,7 @@ service. The application must not be running when you bind services.
 *  Select the service you want to bind in the Services panel and drag it to the
     Application Services Panel.
 
-    ![sts bind service](/images/screenshots/configuring-STS/cf_eclipse_bind_service.png)
+    ![sts bind service](/docs/images/screenshots/configuring-STS/cf_eclipse_bind_service.png)
 
 *  Click the **Start** button.
 
@@ -205,7 +205,7 @@ service. The application must not be running when you bind services.
 The Applications Tab in the Cloud Foundry editor allows users to modify application details like memory, number of running instances, mapped application URLs, as well as starting, stopping, restarting, and update and restarting an application.
 
 
-   ![Regular Update and Restart](/images/screenshots/configuring-STS/cf_eclipse_editor_regular_updaterestart.png)
+   ![Regular Update and Restart](/docs/images/screenshots/configuring-STS/cf_eclipse_editor_regular_updaterestart.png)
 
    Users can restart an application without publishing changes in an application through a **Restart** button or context menu action
    in the Servers view, or update changes in a deployed application and restarting it using an **Update and Restart** option.

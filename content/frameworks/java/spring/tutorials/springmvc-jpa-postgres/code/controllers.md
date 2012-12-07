@@ -34,13 +34,13 @@ public class ExpenseController {
 
     private final Logger logger = LoggerFactory.getLogger(ExpenseController.class);
 
-    @RequestMapping(value = "/expenses/{expenseId}", method = RequestMethod.DELETE, produces = "application/json")
+    @RequestMapping(value = "/docs/expenses/{expenseId}", method = RequestMethod.DELETE, produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public void deleteExpense(@PathVariable("expenseId")Long expenseId) {
         expenseService.deleteExpense(expenseId);
     }
 
-    @RequestMapping(value = "/expenses/{expenseId}", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/docs/expenses/{expenseId}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public Expense editExpense(@PathVariable("expenseId")Long expenseId) {
         Expense expense = expenseService.getExpense(expenseId);
@@ -51,7 +51,7 @@ public class ExpenseController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/expenses/{expenseId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/docs/expenses/{expenseId}", method = RequestMethod.PUT)
     public Long updateExpense(@PathVariable("expenseId")Long expenseId,
             @RequestParam("description")String description,
             @RequestParam("amount")Double amount, @RequestParam("expenseTypeId")Long expenseTypeVal) {
@@ -65,7 +65,7 @@ public class ExpenseController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/expenses", method = RequestMethod.POST)
+    @RequestMapping(value = "/docs/expenses", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
     public Long createNewExpense(@RequestParam("description")String description
               , @RequestParam("amount")Double amount, @RequestParam("expenseTypeId")Long expenseTypeVal) {
@@ -78,13 +78,13 @@ public class ExpenseController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/expenses", method = RequestMethod.GET)
+    @RequestMapping(value = "/docs/expenses", method = RequestMethod.GET)
     public List<Expense> getAllExpenses() {
         List<Expense> expenses = expenseService.getExpensesByUser(getUser());
         return expenses;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/docs/", method = RequestMethod.GET)
     public String getExpenses(ModelMap model) {
         List<ExpenseType> expenseTypeList = expenseTypeService.getAllExpenseType();
         model.addAttribute("expenseTypeList", expenseTypeList);
@@ -92,14 +92,14 @@ public class ExpenseController {
         return "expensereports";
     }
 
-    @RequestMapping(value = "/expenses/approvals", method = RequestMethod.GET)
+    @RequestMapping(value = "/docs/expenses/approvals", method = RequestMethod.GET)
     @ResponseBody
 	public List<Expense> loadApprovedExpenses() {
 		List<Expense> approvedExpenseList = expenseService.getPendingExpensesList();
 		return approvedExpenseList;
 	}
     
-    @RequestMapping(value = "/expenses/{expenseId}/state/{state}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/docs/expenses/{expenseId}/state/{state}", method = RequestMethod.PUT)
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public void changeState(@PathVariable("expenseId")Long expenseId, @PathVariable("state")String state){

@@ -15,7 +15,7 @@ various components.
 ## App use case
 TodoList is used to create and manage tasks.
 
-![todolist-usecase.png](/images/play/todolist-usecase.png)
+![todolist-usecase.png](/docs/images/play/todolist-usecase.png)
 
 These tasks are created by the users and the data
 is stored in underlying relational store.
@@ -39,7 +39,7 @@ to the corresponding actions in the Controller.
 GET     /                           controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file               controllers.Assets.at(path="/docs/public", file)
 
 # Tasks
 GET     /tasks                  controllers.Application.tasks()

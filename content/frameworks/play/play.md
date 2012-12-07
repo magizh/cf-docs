@@ -17,15 +17,15 @@ Before you get started, you need the following:
 
 +  A [Cloud Foundry account](http://cloudfoundry.com/signup)
 
-+  The [vmc](/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
++  The [vmc](/docs/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
 
 +  A [Play 2.0 ](http://www.playframework.org/documentation/2.0.2/Home) installation
 
 
 ## Next Steps
 
-+  [Getting started with Play Java](/frameworks/play/java-getting-started.html) on Cloud Foundry
-+  [Getting started with Play Scala](/frameworks/play/scala-getting-started.html) on Cloud Foundry
-+  [Play Java App with MySQL](/frameworks/play/java-mysql.html)
-+  [Play Java App with PostgreSQL](/frameworks/play/java-postgresql.html)
-+  [Play Java App with MongoDB](/frameworks/play/java-mongodb.html)
++  [Getting started with Play Java](/docs/frameworks/play/java-getting-started.html) on Cloud Foundry
++  [Getting started with Play Scala](/docs/frameworks/play/scala-getting-started.html) on Cloud Foundry
++  [Play Java App with MySQL](/docs/frameworks/play/java-mysql.html)
++  [Play Java App with PostgreSQL](/docs/frameworks/play/java-postgresql.html)
++  [Play Java App with MongoDB](/docs/frameworks/play/java-mongodb.html)

@@ -25,7 +25,7 @@ For detailed information about using Spring Insight and how to interpret and fil
 
     The first time you login, Spring Insight automatically installs itself into your Cloud Foundry account and creates and binds to a RabbitMQ service instance.  This takes a few seconds.  When the installation is complete, you will be redirected to your personal Spring Insight dashboard which lists all the applications you have deployed to Cloud Foundry:
 
-    ![insight-cf-app.png](/images/screenshots/spring-insight/insight-cf-app.png "insight dashboard")
+    ![insight-cf-app.png](/docs/images/screenshots/spring-insight/insight-cf-app.png "insight dashboard")
 
     When you subsequently browse and login to the [Spring Insight for Cloud Foundry](http://insight.cloudfoundry.com/) Web site, you will be automatically redirected to your dashboard.
 
@@ -37,7 +37,7 @@ For detailed information about using Spring Insight and how to interpret and fil
 
 *  Click the **Cloud Foundry > Environment** tab to view information about the available and provisioned service instances in your Cloud Foundry account.  Spring Insight itself is bound to a provisioned RabbitMQ service instance, as shown below:
 
-    ![insight-cf-env.png](/images/screenshots/spring-insight/insight-cf-env.png "insight dashboard environment")
+    ![insight-cf-env.png](/docs/images/screenshots/spring-insight/insight-cf-env.png "insight dashboard environment")
 
 *  To start actually using Spring Insight to monitor the performance of your applications, click the **Browse Resources** tab.  This screen shows the overall health of your application.  Note that only applications that have been enabled for Insight, and have had some recent activity, will show up in the list on the left.
 

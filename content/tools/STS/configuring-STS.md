@@ -48,13 +48,13 @@ In STS, follow these steps to install the Cloud Foundry Integration Extension.
 
 *  Scroll down to the **Server and Clouds** category and select **Cloud Foundry Integration**.
 
-    ![STS Server and Clouds extensions](/images/screenshots/configuring-STS/sts-cf-extension.png)
+    ![STS Server and Clouds extensions](/docs/images/screenshots/configuring-STS/sts-cf-extension.png)
 
 *  Click **Install**.
 
     An install wizard guides you through the installation steps.
 
-    ![STS Cloud Foundry install wizard](/images/screenshots/configuring-STS/cf_eclipse_install_wizard.png)
+    ![STS Cloud Foundry install wizard](/docs/images/screenshots/configuring-STS/cf_eclipse_install_wizard.png)
 
 *  Cloud Foundry offers two install options:
    +  **Core / Cloud Foundry Integration**
@@ -78,7 +78,7 @@ In Eclipse, follow these steps to install the Cloud Foundry Integration Extensio
 
 *  In the **Find** field, enter "cloud foundry" and click **Go**.
 
-    ![Eclipse Extension installation](/images/screenshots/configuring-STS/cf_eclipse_marketplace.png)
+    ![Eclipse Extension installation](/docs/images/screenshots/configuring-STS/cf_eclipse_marketplace.png)
 
 *  In the search results, select "Cloud Foundry Integration for Eclipse" and click **Install**.
 
@@ -94,7 +94,7 @@ In Eclipse, follow these steps to install the Cloud Foundry Integration Extensio
 
 ## Next Steps
 
-+ [Deploying Applications and Binding Services](/tools/STS/deploying-CF-Eclipse.html)
-+ [Debugging](/tools/STS/debugging-CF-Eclipse.html)
-+ [Remote File Access](/tools/STS/remote-CF-Eclipse.html)
++ [Deploying Applications and Binding Services](/docs/tools/STS/deploying-CF-Eclipse.html)
++ [Debugging](/docs/tools/STS/debugging-CF-Eclipse.html)
++ [Remote File Access](/docs/tools/STS/remote-CF-Eclipse.html)
 

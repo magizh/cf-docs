@@ -17,7 +17,7 @@ Before you get started, you'll need the following:
 
 +  A [Cloud Foundry account](http://cloudfoundry.com/signup)
 
-+  The [vmc](/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
++  The [vmc](/docs/tools/vmc/installing-vmc.html) Cloud Foundry command line tool
 
 +  A [Play 2.0 ](http://www.playframework.org/documentation/2.0.2/Home) installation
 
@@ -36,7 +36,7 @@ of this app to work with the MongoDB back end.
 
 TodoList is used to create and manage tasks.
 
-![todolist-usecase.png](/images/play/todolist-usecase.png)
+![todolist-usecase.png](/docs/images/play/todolist-usecase.png)
 
 These tasks are created by the users and the data
 is stored in underlying relational store.
@@ -44,7 +44,7 @@ is stored in underlying relational store.
 A high-level interaction diagram of the application using Play runtime and MongoDB can be
 found below:
 
-![play-mongodb.png](/images/play/play-mongodb.png)
+![play-mongodb.png](/docs/images/play/play-mongodb.png)
 
 ### Steps to Create the App
 In this section, we outline the steps to create the app from the default Play app template.
@@ -116,9 +116,9 @@ todolist-java-mongodb/target/scala-2.9.1/classes...
 Import the created project into Eclipse via File -> Import and point to the root folder of
 the project `todolist-java-mongodb`.
 
-![eclipse-import-mongoproject-1.png](/images/screenshots/play/eclipse-import-mongoproject-1.png)
+![eclipse-import-mongoproject-1.png](/docs/images/screenshots/play/eclipse-import-mongoproject-1.png)
 
-![eclipse-import-mongoproject-2.png](/images/screenshots/play/eclipse-import-mongoproject-2.png)
+![eclipse-import-mongoproject-2.png](/docs/images/screenshots/play/eclipse-import-mongoproject-2.png)
 
 #### Add the MongoDB Driver and Gson Jar to the Project
 
@@ -168,7 +168,7 @@ POST    /tasks/:id/delete        controllers.Application.deleteTask(id: Long)
 GET     /                       controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file           controllers.Assets.at(path="/public", file)
+GET     /assets/*file           controllers.Assets.at(path="/docs/public", file)
 
 # Tasks
 GET     /tasks                  controllers.Application.tasks()
@@ -301,7 +301,7 @@ $play run
 ```
 You should see the following screen when your browser is pointed to `http://localhost:9000`.
 
-![play-todolist-java-mongodb-local.png](/images/screenshots/play/play-todolist-java-mongodb-local.png)
+![play-todolist-java-mongodb-local.png](/docs/images/screenshots/play/play-todolist-java-mongodb-local.png)
 
 You can connect to the local MongoDB instance using the `mongo` command line shell and then query the collection.
 `mongo` is shell binary. The exact location might vary depending on the installation method and platform.
@@ -383,7 +383,7 @@ Starting Application 'todolist-java-mongodb': OK
 
 Upon completion of deployment, we can go and visit the actual app at the URL `[app-name].cloudfoundry.com]`
 
-![play-todolist-java-mongodb.png](/images/screenshots/play/play-todolist-java-mongodb.png)
+![play-todolist-java-mongodb.png](/docs/images/screenshots/play/play-todolist-java-mongodb.png)
 
 ## Summary
 In this tutorial, we learned how to build and deploy a basic Play Java app with MongoDB as the backend

@@ -13,7 +13,7 @@ tags:
 
 **Is there a tutorial for using PostgreSQL with Ruby and Rails on Cloud Foundry?**
 
-[Yes](/services/postgres/postgres-ruby.html)
+[Yes](/docs/services/postgres/postgres-ruby.html)
 
 
 ###vFabric Postgres
